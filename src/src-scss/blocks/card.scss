@@ -1,0 +1,84 @@
+.card {
+  $c: &;
+  @include dflex;
+  flex-direction: column;
+
+  height: 100%;
+  
+  overflow: hidden;
+
+  border: 1px solid $border;
+  border-radius: $cards-bdrs;
+
+  box-shadow: 0 0 0 0 transparent ;
+
+  color: $text;
+
+  text-decoration: none;
+
+  transition: transform $transition-time, box-shadow $transition-time;
+
+  &:hover {
+    transform: translateY(-2px);
+    @include shadow;
+
+    & #{$c}__title {
+      text-decoration: underline;
+    }
+
+    & #{$c}__button {
+      background-color: darken( adjust-hue($light-blue, -2), 4%);
+      border-radius: 0;
+      transition: none;
+    }
+  }
+
+  & > * {
+    width: 100%;
+  }
+
+  &__header {
+    overflow: hidden;
+
+    width: 100%;
+    height: 200px;
+  }
+
+  &__footer {
+    margin-top: auto;
+  }
+
+  &__image {
+    //display: flex;
+    //justify-content: center;
+
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    padding: 24px;
+  }
+
+  &__tag {
+    margin-bottom: 12px;
+
+    color: $tag;
+    text-decoration: none;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__date {
+    display: block;
+    margin-bottom: 8px;
+
+    color: $gray;
+  }
+}

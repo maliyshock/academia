@@ -1,0 +1,25 @@
+.page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+
+  width: 100%;
+  min-height: 100%;
+
+  & > * {
+    width: 100%;
+  }
+
+  //&__wrapper {
+  //  padding-top: 30px;
+  //  padding-bottom: 30px;
+  //
+  //  @include for-tablet-landscape-up {
+  //    display: flex;
+  //
+  //    padding-top: 50px;
+  //    padding-bottom: 50px;
+  //  }
+  //}
+}

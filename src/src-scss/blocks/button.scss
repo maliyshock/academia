@@ -1,0 +1,70 @@
+.button {
+  $c: &;
+  @include resetButton;
+  display: inline-block;
+
+  width: 100%;
+  max-width: 250px;
+
+  padding: 20px;
+
+  background-color: $button;
+
+  border-radius: $big-bd-radius;
+  border: 1px solid transparent;
+
+  box-shadow: 0 0 0 0 transparent;
+
+  cursor: pointer;
+
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $button-text;
+
+  transition:
+          background-color $transition-time,
+          transform $transition-time,
+          box-shadow $transition-time;
+
+  &:hover {
+    background-color: darken( adjust-hue($button, -2), 4%);
+    transform: translateY(-2px);
+    @include shadow;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: $black;
+    font-weight: 600;
+  }
+
+  &--size-small {
+    max-width: 270px;
+    min-width: 160px;
+
+    padding: 8px 15px;
+
+    border-radius: $bd-radius;
+
+    font-size: 12px;
+  }
+
+  &--no-transform {
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &--width-full {
+    max-width: 100%;
+  }
+
+  &--color-light-blue {
+    @include colorizeButton($light-blue, $black);
+  }
+
+  &--color-violet {
+    @include colorizeButton($violet, $white);
+  }
+}

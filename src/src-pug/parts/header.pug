@@ -1,0 +1,61 @@
+header.header
+    .header__floor
+        .header__inner.wrapper
+            .header__side
+                button.burger.js-menu-trigger
+                    .burger__icon
+                        svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 448 512')
+                            path(d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z')
+
+                a.header__logo.logo(href='')
+                    include ../../images/logo.svg
+
+                nav.navigation.navigation--font-uppercase.js-navigation
+                    ul.navigation__list
+                        li.navigation__item
+                            a.navigation__link(href='#') О нас
+                        li.navigation__item
+                            a.navigation__link(href='#') Курсы
+                        li.navigation__item
+                            a.navigation__link(href='#') Истории Учеников
+                            span.counter 67
+                        li.navigation__item
+                            a.navigation__link(href='#') Отзывы
+                            span.counter 11
+                    .navigation__close.js-menu-trigger
+                        include ../../images/cross.svg
+
+                    ul.list.navigation__list.navigation__list--hidden-frrom-landscape
+                        ul.navigation__list
+                            li.navigation__item
+                                a.navigation__link(href='#') Отдел заботы
+                            li.navigation__item
+                                a.navigation__link(href='#') Статьи
+                            li.navigation__item
+                                a.navigation__link(href='#') Партнерство
+                            li.navigation__item
+                                a.navigation__link(href='#') Вакансии
+
+            .header__side
+                +contacts
+                    +button('Заказать вонок', 'button--size-small')
+
+
+    .header__floor
+        .header__inner.wrapper
+            .header__side.header__side--padding-left
+                nav.navigation.navigation--color-dark-gray
+                    ul.navigation__list
+                        li.navigation__item
+                            a.navigation__link(href='#') Отдел заботы
+                        li.navigation__item
+                            a.navigation__link(href='#') Статьи
+                        li.navigation__item
+                            a.navigation__link(href='#') Партнерство
+                        li.navigation__item
+                            a.navigation__link(href='#') Вакансии
+            .header__side
+                a.header__link.link(href='#')
+                    span.icon
+                        include ../../images/login.svg
+                    span.link__text Вход для учеников

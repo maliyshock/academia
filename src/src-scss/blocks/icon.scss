@@ -1,0 +1,17 @@
+.icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  width: 16px;
+  height: 16px;
+
+  margin-left: 5px;
+  margin-right: 5px;
+
+  & > * {
+    height: 100%;
+    display: block;
+  }
+}

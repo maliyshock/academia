@@ -1,0 +1,19 @@
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include for-tablet-portrait-up {
+    flex-wrap: nowrap;
+  }
+}
+
+.column {
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
+
+  @include for-tablet-portrait-up {
+    width: 0;
+  }
+}

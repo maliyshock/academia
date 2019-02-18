@@ -1,0 +1,11 @@
+mixin card(title, link, tag, date, classNames)
+    a.card(class=classNames href=link)
+        .card__header
+            img.card__image(srcset='images/placeholders/evgenya.jpg 1x, images/placeholders/evgenya@2x.jpg 2x' alt='Description of Image')
+        .card__body
+            .card__tag(href='#') #{tag}
+            h5.h5.card__title #{title}
+            time.card__date #{date}
+            block
+        .card__footer
+            +button('Подробнее', 'card__button button--color-light-blue button--no-transform button--width-full')

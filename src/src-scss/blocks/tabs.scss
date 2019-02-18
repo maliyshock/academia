@@ -1,0 +1,128 @@
+.tabs {
+  $c: &;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+
+    #{$c}--wide & {
+      flex-wrap: nowrap;
+    }
+
+    &.list--direction-horizontal {
+      transform: translateX(0);
+    }
+  }
+
+  &__item {
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    width: 0;
+
+    #{$c}--wide & {
+      flex-basis: 0;
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+  }
+
+  &__content {
+
+    #{$c}--big &{
+      @include for-phone-up {
+        padding: 30px 15px
+      }
+
+      @include for-tablet-portrait-up {
+        padding: 50px 30px;
+      }
+
+      @include for-tablet-landscape-up {
+        padding: 60px 40px;
+      }
+
+      @include for-desktop-up {
+        padding: 80px;
+      }
+    }
+  }
+
+  &__text {
+    transition: background-size $quick-transition-time;
+  }
+
+  &__icon {
+    height: 30px;
+    width: auto;
+
+    margin-right: 10px;
+
+    & > * {
+      display: block;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
+
+    color: #666666;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: background-color $transition-time;
+
+    @include for-tablet-portrait-up {
+      text-align: center;
+    }
+
+    &.active {
+      //background-color: $sky;
+      color: $blue;
+      cursor: default;
+    }
+
+    &:not(.active) {
+      background-color: #fafafa;
+      #{$c}__text {
+        //background-image: linear-gradient(to bottom, rgba(35, 178, 255, 0) 0%, rgba(35, 178, 255, 0) 20%, rgba(35, 178, 255, 1) 20%, rgba(35, 178, 255, 1) 100%);
+        background-size: 100% 0;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      &:hover {
+        #{$c}__text {
+          background-size: 100% 100%;
+        }
+      }
+    }
+
+    #{$c}--big & {
+      @include for-phone-up {
+        padding: 10px 15px;
+
+        font-size: between(16px, 20px, $phone-from, $tablet-landscape);
+      }
+
+      @include for-tablet-landscape-up {
+        padding: 22px 20px;
+
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__panel {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}

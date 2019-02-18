@@ -1,0 +1,39 @@
+.form {
+  $c: &;
+
+  &--direction-horizontal {
+    @include dflex;
+    justify-content: center;
+
+    max-width: 500px;
+
+    margin-left:auto;
+    margin-right:auto;
+
+    @include for-tablet-landscape-up {
+      flex-wrap: nowrap;
+
+      max-width: 100%;
+    }
+
+    #{$c}__item {
+      width: 100%;
+      max-width: 270px;
+
+      margin-bottom: 25px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include for-tablet-landscape-up {
+        margin-right: 30px;
+        margin-bottom: 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

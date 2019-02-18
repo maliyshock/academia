@@ -1,0 +1,10 @@
+.logo {
+  display: inline-block;
+
+  & img, & svg {
+    display: block;
+
+    width: 180px;
+    height: 35px;
+  }
+}

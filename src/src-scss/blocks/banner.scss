@@ -1,0 +1,44 @@
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  padding-top: 40px;
+
+  &__text-container {
+    @include for-tablet-landscape-up {
+      width: 58%;
+
+      transform: translateY(-20px);
+    }
+  }
+
+  &__img-container {
+    display: flex;
+
+    height: 150px;
+    width: 100%;
+
+    padding-top: 20px;
+
+    @include for-tablet-landscape-up {
+      display: block;
+
+      width: 42%;
+      height: auto;
+
+      margin-bottom: 0;
+      margin-top: auto;
+
+      padding-top: 0px;
+    }
+  }
+
+  &__img {
+    display: block;
+
+    max-height: 100%;
+
+    margin-top: auto;
+  }
+}

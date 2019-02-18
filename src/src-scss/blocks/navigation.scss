@@ -1,0 +1,161 @@
+.navigation {
+  $c: &;
+
+  font-weight: 600;
+
+  transition: transform $transition-time;
+
+  //&:first-child {
+  //  margin-left: -16px;
+  //}
+  //
+  //&:last-child {
+  //  margin-right: -16px;
+  //}
+
+  @include for-phone-up {
+    position: fixed;
+    left: 100%;
+    top: 0;
+
+    height: 100vh;
+    width: 100%;
+
+    overflow: auto;
+
+    padding: 50px 25px;
+
+    background-color: $light-blue;
+
+    z-index: $navigation;
+
+    &.open {
+      transform: translateX(-100%);
+    }
+  }
+
+  @include for-tablet-landscape-up {
+    position: static;
+
+    height: auto;
+    width: auto;
+
+    overflow: inherit;
+
+    background-color: transparent;
+
+    padding: 0 15px 0 0;
+  }
+
+  &--font-uppercase {
+    text-transform: uppercase;
+  }
+
+  &--color-dark-gray {
+    color: $dark-gray;
+
+    & #{$c}__link {
+      color: $dark-gray;
+    }
+  }
+
+  &__main-actions {
+    @include for-tablet-landscape-up {
+      display: none;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+  }
+
+
+  &__list {
+    @include dflex;
+    @include reset-ul;
+
+    @include for-phone-up {
+      padding-top: 25px;
+      padding-bottom: 25px;
+
+      border-bottom: 1px solid transparentize(white,.8);
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+
+        border-bottom: none;
+      }
+    }
+
+    @include for-tablet-landscape-up {
+      padding-top: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    &--hidden-frrom-landscape {
+      @include for-tablet-landscape-up {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    position: relative;
+
+    padding: 18px 0;
+
+    border-bottom: 4px solid transparent;
+
+    color: $nav-link;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 12px;
+
+    &:hover {
+      color: darken($nav-link, 5%);
+      border-bottom: 4px solid $nav-link-border;
+    }
+
+    @include for-tablet-landscape-up {
+      &:hover {
+        //color: lighten($light-blue, 20%);
+        //fill: lighten($light-blue, 20%);
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    margin-right: 32px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include for-phone-up {
+      width: 100%;
+
+      font-size: 20px;
+    }
+
+    @include for-tablet-landscape-up {
+      width: auto;
+      font-size: 14px;
+
+      &:hover {
+        & #{$c}__sub-list {
+          display: block;
+        }
+      }
+    }
+  }
+}

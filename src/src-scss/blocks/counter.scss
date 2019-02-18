@@ -1,0 +1,15 @@
+.counter {
+  position: absolute;
+  top: 6px;
+  right: -14px;
+
+  padding: 0 5px;
+
+  border-radius: 10px;
+
+  background-color: $counter;
+
+  color: $counter-text;
+  font-size: 10px;
+  font-weight: 600;
+}
