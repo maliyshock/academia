@@ -1,0 +1,6 @@
+mixin categories(list, modificator)
+    .categories
+        ul.categories__list
+            for item in list
+                li.categories__item
+                    a.categories__link(href='#') #{item}

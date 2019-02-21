@@ -1,6 +1,6 @@
 import $ from 'jquery'
 import {fadeIn,fadeOut} from './utils'
-import {pubSub} from './pubSub'
+// import {pubSub} from './pubSub'
 
 export let popup = {
     init: function () {
@@ -13,7 +13,7 @@ export let popup = {
         this.$body = $('body');
         this.$close = $('.js-popup-close');
         this.$popups = $('.js-popup');
-        this.$popupInners = $('.js-popup-inner');
+        // this.$popupInners = $('.js-popup-inner');
     },
 
     showPopup: function (target) {
@@ -45,7 +45,7 @@ export let popup = {
 
             this.hidePopup($targetPopup);
 
-            pubSub.emit('closePopup',$targetPopup)
+            // pubSub.emit('closePopup',$targetPopup)
         });
 
         this.$popups.on('click', (e) => {

@@ -1,28 +1,10 @@
-.burger, .navigation__close {
-  @include resetButton;
-  @include for-phone-up {
-
-    margin-right: 12px;
-    padding-right: 12px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-    fill: $dark-gray;
-
-    & > * {
-      height: 100%;
-    }
-  }
-
-  @include for-tablet-landscape-up {
-    display: none;
-  }
-}
-
 .burger {
+  @include mobileMenuButton;
+  margin-right: 12px;
+
+
   &__icon {
     width: 24px;
     height: 24px;
   }
 }
-

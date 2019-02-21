@@ -1,11 +1,33 @@
 mixin card(title, link, tag, date, classNames)
     a.card(class=classNames href=link)
-        .card__header
+        header.card__header
             img.card__image(srcset='images/placeholders/evgenya.jpg 1x, images/placeholders/evgenya@2x.jpg 2x' alt='Description of Image')
         .card__body
-            .card__tag(href='#') #{tag}
-            h5.h5.card__title #{title}
-            time.card__date #{date}
+            if(tag)
+                .tags
+                    ul.tags__list
+                        li.tags__item
+                            span.card__tag(href='#') #{tag}
+            h4.h4.card__title #{title}
+            if(date)
+                time.card__date #{date}
+            table.card__icons.table.table--size-small
+                tbody
+                    tr.table__tr
+                        td.table__td
+                            span.icon.icon--color-violet
+                                span.icon__image
+                                    include ../../images/dollar.svg
+                                span.icon__text Доход:
+
+                        td.table__td 150 000 р. в мес
+                    tr.table__tr
+                        td.table__td
+                            span.icon.icon--color-violet
+                                span.icon__image
+                                    include ../../images/target.svg
+                                span.icon__text Ниша:
+                        td.table__td Костюмы
             block
-        .card__footer
+        footer.card__footer
             +button('Подробнее', 'card__button button--color-light-blue button--no-transform button--width-full')

@@ -1,0 +1,12 @@
+mixin story_block(title, list, modificator)
+    .story__block.content
+        .row
+            .content__column.column
+                .content__img-container.img-container
+                    img(srcset='http://placehold.it/600x900 1x, http://placehold.it/600x900 2x')
+
+            .content__column.column
+                h3.h3 #{title}
+
+                for item in list
+                    p.h4 #{item}

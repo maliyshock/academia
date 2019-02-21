@@ -42,8 +42,20 @@ module.exports = {
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new HtmlWebpackplugin({
-            filename: 'index.html',
-            template: PATHS.source + '/src-pug/index.pug'
+            filename: 'articles.html',
+            template: PATHS.source + '/src-pug/articles.pug'
+        }),
+        new HtmlWebpackplugin({
+            filename: 'reviews.html',
+            template: PATHS.source + '/src-pug/reviews.pug'
+        }),
+        new HtmlWebpackplugin({
+            filename: 'history.html',
+            template: PATHS.source + '/src-pug/history.pug'
+        }),
+        new HtmlWebpackplugin({
+            filename: 'story.html',
+            template: PATHS.source + '/src-pug/story.pug'
         }),
         new ExtractTextPlugin("app.css"),
         new webpack.ProvidePlugin({ // inject ES5 modules as global vars

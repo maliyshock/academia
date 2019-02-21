@@ -9,6 +9,7 @@ import '../src-scss/index.scss';
 
 // import  {dropdowns}         from './modules/dropdown.js'
 import  {burger}            from './modules/burger.js'
+import  {popup}             from './modules/popup.js'
 // import  {tabs}              from './modules/tabs.js'
 // import  {sliderInit}        from './modules/slider.js'
 // import  {calculator}        from './modules/calculator.js'
@@ -17,4 +18,5 @@ import  {burger}            from './modules/burger.js'
 $('document').ready(function(){
 
     burger.init();
+    popup.init();
 });

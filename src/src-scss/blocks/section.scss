@@ -1,10 +1,36 @@
 .section {
   $c: &;
 
-  padding-top: 60px;
+  // chec it conflicts with call to action
+  //padding-top: 24px;
 
   &--bg-light-blue {
     background-color: $light-blue;
+  }
+
+  &--indents {
+    @include indents;
+  }
+
+  &--small-indents {
+    @include sm-indents;
+  }
+
+  &--width-full {
+    #{$c}__title-area {
+      max-width: 1240px;
+    }
+    #{$c}__inner {
+      max-width: 100%;
+    }
+  }
+
+  &--margin-left {
+    @include for-desktop-up {
+      #{$c}__inner {
+        margin-left: calc((100% - 1280px)/2);
+      }
+    }
   }
 
   &__inner {
@@ -15,14 +41,39 @@
   &__title {
     text-align: center;
 
+    &.h2 {
+      margin-top: 18px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &.h5 {
+      margin-top: 12px;
+
+      @include for-tablet-landscape-up {
+        margin-top: 16px;
+      }
+    }
+
     &--color-dark-gray {
       color: $dark-gray;
     }
   }
 
   &__title-area {
-    margin-top: 18px;
-    margin-bottom: 60px;
+
+    // indents goes top
+    //margin-top: 12px;
+    //margin-bottom: 16px;
+
+    // conflicts with else stories
+    //margin-bottom: 20px;
+    //
+    //@include for-tablet-landscape-up {
+    //  margin-bottom: 32px;
+    //}
   }
 
   &__form-area {

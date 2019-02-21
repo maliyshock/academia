@@ -1,0 +1,18 @@
+mixin breadcrumbs(list, modificator)
+    .breadcrumbs
+        ul.breadcrumbs__list
+            li.breadcrumbs__item
+                a.breadcrumbs__link(href='#')
+                    span.icon.icon--color-violet
+                        .icon__image
+                            include ../../images/house.svg
+            - var i = 1
+            for item in list
+                if(list.length !== i)
+                    li.breadcrumbs__item
+                        a.breadcrumbs__link(href='#') #{item}
+                    - i = i + 1
+                else
+                    li.breadcrumbs__item.active
+                        a.breadcrumbs__link(href='#') #{item}
+

@@ -1,0 +1,17 @@
+.text-banner {
+  @include dflex;
+  justify-content: center;
+
+  margin-top: 32px;
+  padding: 20px;
+
+  background-color: $light-blue;
+
+  &__text {
+    max-width: 764px;
+
+    text-align: center;
+    line-height: 150% ;
+
+  }
+}

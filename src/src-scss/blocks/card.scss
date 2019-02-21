@@ -1,20 +1,17 @@
 .card {
   $c: &;
   @include dflex;
+  @include blockBase;
+
   flex-direction: column;
 
   height: 100%;
   
   overflow: hidden;
 
-  border: 1px solid $border;
-  border-radius: $cards-bdrs;
-
-  box-shadow: 0 0 0 0 transparent ;
-
   color: $text;
-
   text-decoration: none;
+  white-space: normal;
 
   transition: transform $transition-time, box-shadow $transition-time;
 
@@ -42,6 +39,10 @@
 
     width: 100%;
     height: 200px;
+
+    @include for-phone-only {
+      height: 100px;
+    }
   }
 
   &__footer {
@@ -49,10 +50,8 @@
   }
 
   &__image {
-    //display: flex;
-    //justify-content: center;
-
     width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
@@ -69,6 +68,10 @@
     &:empty {
       display: none;
     }
+  }
+
+  &__icons {
+    margin-bottom: 8px;
   }
 
   &__title {

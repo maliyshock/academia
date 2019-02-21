@@ -1,17 +1,50 @@
 .icon {
+  $c: &;
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  flex-shrink: 0;
 
-  width: 16px;
-  height: 16px;
 
-  margin-left: 5px;
-  margin-right: 5px;
+  &--color-violet {
+    & svg {
+      fill: $violet;
+    }
 
-  & > * {
-    height: 100%;
-    display: block;
+    #{$c}__text {
+      color: $violet;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+  }
+  
+  &__image {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    width: 19px;
+    height: 19px;
+
+    & > * {
+      height: 100%;
+      display: block;
+    }
+
+    &:first-child {
+      margin-right: 5px;
+    }
+
+    &:last-child {
+      margin-left: 5px;
+    }
+
+    &:only-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }
+
+

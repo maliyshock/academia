@@ -1,8 +1,37 @@
 .cards {
+  $c: &;
+  @include sm-indents;
+
+  &--row-one {
+    #{$c}__list {
+      display: flex;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+
+    #{$c}__item {
+      flex-grow: 1;
+      flex-shrink: 0;
+
+      width: 100%;
+      max-width: 386px;
+
+      margin-right: 60px;
+
+      &:nth-child(n+4) {
+        opacity: 0.45;
+      }
+
+      @include for-phone-only {
+        max-width: 90%;
+      }
+    }
+  }
+
   &__list {
     @include reset-ul;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) ) ;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     grid-gap: 60px;
   }
 }

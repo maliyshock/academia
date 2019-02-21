@@ -1,0 +1,21 @@
+.img-container {
+  width: 100%;
+  height: 150px;
+
+  //margin-top: 24px;
+
+  @include for-tablet-portrait-up {
+    height: 200px;
+  }
+
+  @include for-tablet-landscape-up {
+    height: 300px;
+  }
+
+  & img{
+    height: 100%;
+    width: 100%;
+
+    border-radius: $big-bd-radius;
+  }
+}

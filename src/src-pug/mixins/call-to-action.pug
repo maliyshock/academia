@@ -1,0 +1,12 @@
+mixin call-to-action(title, button)
+    article.call-to-action.section
+        .section__inner
+            .row
+                .column.call-to-action__column
+                    .h2 #{title}
+
+                .column.call-to-action__column.call-to-action__column--show-from-landscape
+                    .arrow
+
+                .column.call-to-action__column
+                    +button(button, 'button--highlighted button--width-full button--size-big js-show-popup', '.js-popup-form')

@@ -1,21 +1,17 @@
 .navigation {
   $c: &;
 
+  max-width: 100%;
+
   font-weight: 600;
 
   transition: transform $transition-time;
 
-  //&:first-child {
-  //  margin-left: -16px;
-  //}
-  //
-  //&:last-child {
-  //  margin-right: -16px;
-  //}
+  @include navigationLandscapeUpBehavior;
 
-  @include for-phone-up {
+  &--mobile-behavior {
     position: fixed;
-    left: 100%;
+    right: 100%;
     top: 0;
 
     height: 100vh;
@@ -23,28 +19,97 @@
 
     overflow: auto;
 
-    padding: 50px 25px;
-
     background-color: $light-blue;
 
     z-index: $navigation;
 
     &.open {
-      transform: translateX(-100%);
+      transform: translateX(100%);
+
+      @include for-tablet-landscape-up {
+        transition: none;
+        transform: none;
+      }
     }
-  }
 
-  @include for-tablet-landscape-up {
-    position: static;
+    @include navigationLandscapeUpBehavior;
 
-    height: auto;
-    width: auto;
+    #{$c}__list {
+      padding: 32px 25px;
 
-    overflow: inherit;
+      &:first-child {
+        background-color: $white;
+      }
 
-    background-color: transparent;
+      @include for-tablet-landscape-up {
+        padding: 0;
 
-    padding: 0 15px 0 0;
+        &:first-child {
+          background-color: $light-blue;
+        }
+      }
+    }
+
+    #{$c}__item {
+      width: 100%;
+
+      @include for-tablet-landscape-up {
+        width: auto;
+      }
+    }
+
+    #{$c}__link {
+      font-size: 18px;
+
+      @include for-tablet-landscape-up {
+        font-size: 12px;
+      }
+    }
+
+    #{$c}__text-wrapper {
+      @include dflex;
+      align-items: center;
+
+      @include for-tablet-landscape-up {
+        display: block;
+      }
+    }
+
+    #{$c}__text {
+      margin-right: 8px;
+
+      @include for-tablet-landscape-up {
+        margin-right: 0;
+      }
+    }
+
+    .contacts {
+      padding: 0 20px 20px 20px;
+
+      background-color: $white;
+
+      text-align: center;
+
+      &__side {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 8px;
+      }
+    }
+
+    & .counter {
+      position: static;
+
+      display: inline-block;
+      vertical-align: middle;
+
+      font-size: 18px;
+
+      @include for-tablet-landscape-up {
+        position: absolute;
+        font-size: 10px;
+      }
+    }
   }
 
   &--font-uppercase {
@@ -59,6 +124,19 @@
     }
   }
 
+  &--scrollable {
+    overflow-x: auto;
+
+    @include for-tablet-portrait-up {
+      overflow-x: inherit;
+    }
+
+    #{$c}__list {
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+  }
+
   &__main-actions {
     @include for-tablet-landscape-up {
       display: none;
@@ -66,9 +144,11 @@
   }
 
   &__close {
+    @include mobileMenuButton;
+
     position: absolute;
-    top: 20px;
-    right: 15px;
+    top: 0px;
+    right: 0px;
   }
 
 
@@ -77,29 +157,10 @@
     @include reset-ul;
 
     @include for-phone-up {
-      padding-top: 25px;
-      padding-bottom: 25px;
-
       border-bottom: 1px solid transparentize(white,.8);
-
-      &:first-child {
-        padding-top: 0;
-      }
-
-      &:last-child {
-        padding-bottom: 0;
-
-        border-bottom: none;
-      }
     }
 
-    @include for-tablet-landscape-up {
-      padding-top: 0;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-
-    &--hidden-frrom-landscape {
+    &--hidden-from-landscape {
       @include for-tablet-landscape-up {
         display: none;
       }
@@ -108,7 +169,6 @@
 
   &__link {
     display: block;
-    position: relative;
 
     padding: 18px 0;
 
@@ -119,17 +179,16 @@
     text-decoration: none;
     font-size: 12px;
 
-    &:hover {
-      color: darken($nav-link, 5%);
-      border-bottom: 4px solid $nav-link-border;
-    }
-
-    @include for-tablet-landscape-up {
+    @include for-desktop-up {
       &:hover {
-        //color: lighten($light-blue, 20%);
-        //fill: lighten($light-blue, 20%);
+        color: darken($nav-link, 5%);
+        border-bottom: 4px solid $nav-link-border;
       }
     }
+  }
+
+  &__text {
+    position: relative;
   }
 
   &__item {
@@ -139,12 +198,6 @@
 
     &:last-child {
       margin-right: 0;
-    }
-
-    @include for-phone-up {
-      width: 100%;
-
-      font-size: 20px;
     }
 
     @include for-tablet-landscape-up {

@@ -1,0 +1,40 @@
+.categories {
+  padding-top: 32px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid $light-blue;
+
+  &__list {
+    @include reset-ul;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 12px 60px;
+  }
+
+  &__item {
+
+  }
+
+  &__link {
+    display: inline-block;
+
+    color: $dark-gray;
+    font-size: 20px;
+
+    text-decoration: none;
+
+    @include for-desktop-up {
+      transition: transform $transition-time;
+    }
+
+    &.active {
+      color: $violet;
+    }
+
+    @include for-desktop-up {
+      &:hover {
+        color: $violet;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}

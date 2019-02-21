@@ -2,37 +2,40 @@ footer.footer
     .footer__floor
         .footer__inner
             .footer__side
-                nav.navigation.navigation--font-uppercase
+                nav.navigation.navigation--font-uppercase.navigation--scrollable
                     ul.navigation__list
                         li.navigation__item
                             a.navigation__link(href='#') О нас
                         li.navigation__item
                             a.navigation__link(href='#') Курсы
                         li.navigation__item
-                            a.navigation__link(href='#') Истории Учеников
-                            span.counter 67
+                            a.navigation__link(href='#')
+                                span.navigation__text-wrapper
+                                    span.navigation__text Истории Учеников
+                                    span.counter 67
                         li.navigation__item
-                            a.navigation__link(href='#') Отзывы
-                            span.counter 11
+                            a.navigation__link(href='#')
+                                span.navigation__text-wrapper
+                                    span.navigation__text Отзывы
+                                    span.counter 11
             .footer__side
-                nav.navigation
-                    ul.list.navigation__list
-                        ul.navigation__list
-                            li.navigation__item
-                                a.navigation__link(href='#') Отдел заботы
-                            li.navigation__item
-                                a.navigation__link(href='#') Статьи
-                            li.navigation__item
-                                a.navigation__link(href='#') Партнерство
-                            li.navigation__item
-                                a.navigation__link(href='#') Вакансии
+                nav.navigation.navigation--scrollable
+                    ul.navigation__list.navigation__list
+                        li.navigation__item
+                            a.navigation__link(href='#') Отдел заботы
+                        li.navigation__item
+                            a.navigation__link(href='#') Статьи
+                        li.navigation__item
+                            a.navigation__link(href='#') Партнерство
+                        li.navigation__item
+                            a.navigation__link(href='#') Вакансии
 
 
-    .footer__floor
-        .footer__inner.footer__inner--vertical-paddings
-            .footer__grid
+    .footer__floor.footer__floor--color-light-blue
+        .footer__inner
+            .footer__row
                 .footer__column
-                    h6.footer__title Реквизиты
+                    h5.footer__title Реквизиты
                     p.footer__text БИК: 044525201
                     p.footer__text ИНН: 7702021163
                     p.footer__text ОКВЭД: 64.19
@@ -42,7 +45,7 @@ footer.footer
                     p.footer__text КПП крупнейшего налогоплательщика: 997950001
                     p.footer__text ОКТМО: 45376000
                 .footer__column
-                    h6.footer__title Соц сети
+                    h5.footer__title Соц сети
                     ul.list.list--text-opacity-weak
                         li.list__item
                             a.link.list__link(href='#')

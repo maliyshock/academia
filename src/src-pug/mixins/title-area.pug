@@ -1,0 +1,12 @@
+mixin title-area(title, subTitle, button)
+    .section__title-area.title-area
+        if(button && title)
+            .title-area__action-title
+                h2.title-area__h2.section__title #{title}
+                +button(button, 'button--color-violet')
+        else if (title)
+            h2.h2.title-area__title.section__title #{title}
+        if(subTitle)
+            h5.h5.section__title.section__title--color-dark-gray #{subTitle}
+
+        block

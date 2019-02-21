@@ -1,0 +1,21 @@
+.content {
+  h3,.h3  {
+    margin-top: 1.2em;
+
+    &:first-child {
+      @include for-tablet-landscape-up {
+        margin-top: 0;
+      }
+    }
+  }
+
+  p {
+    margin-top: 1em;
+  }
+
+  &__column {
+    @include for-tablet-landscape-up {
+      @include f-col(6);
+    }
+  }
+}

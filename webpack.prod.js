@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackplugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const pug = require('./webpack/pug');
 const extractCSS = require('./webpack/css.extract');
@@ -26,9 +26,21 @@ const common = merge([
         },
 
         plugins: [
-            new HtmlWebpackPlugin({
-                filename: 'index.html',
-                template: PATHS.source + '/src-pug/index.pug'
+            new HtmlWebpackplugin({
+                filename: 'articles.html',
+                template: PATHS.source + '/src-pug/articles.pug'
+            }),
+            new HtmlWebpackplugin({
+                filename: 'reviews.html',
+                template: PATHS.source + '/src-pug/reviews.pug'
+            }),
+            new HtmlWebpackplugin({
+                filename: 'history.html',
+                template: PATHS.source + '/src-pug/history.pug'
+            }),
+            new HtmlWebpackplugin({
+                filename: 'story.html',
+                template: PATHS.source + '/src-pug/story.pug'
             }),
             // new webpack.ProvidePlugin({
             //     $: 'jquery',

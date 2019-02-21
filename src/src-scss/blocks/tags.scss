@@ -1,0 +1,10 @@
+.tags {
+  margin-bottom: 8px;
+  &__list {
+    @include reset-ul;
+  }
+
+  &__item {
+
+  }
+}

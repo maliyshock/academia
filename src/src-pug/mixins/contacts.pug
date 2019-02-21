@@ -1,7 +1,7 @@
-mixin contacts()
-    .contacts
+mixin contacts(modificators)
+    .contacts(class=modificators)
         .contacts__side
-            a.link.link--no-transform.h6.contacts__text(href="tel:8-800-200-30-30") 8 800–200–30–30
+            a.link.link--no-transform.h5.contacts__text(href="tel:8-800-200-30-30") 8 800–200–30–30
             p.contacts__text.contacts__text--small пн-пт, 10-19 по МСК
         .contacts__side
             block

@@ -1,0 +1,30 @@
+.call-to-action {
+  @include coloredBlockIndents;
+
+  background-color: $light-blue;
+
+  &__column {
+    margin-top: 20px;
+
+    align-items: center;
+
+    &:nth-child(1) {
+      margin-top: 0;
+    }
+
+    @include for-tablet-landscape-up {
+      @include dflex;
+      margin-top: 0;
+
+      flex-basis: 33.3%;
+    }
+
+    &--show-from-landscape {
+      display: none;
+
+      @include for-tablet-landscape-up {
+        display: flex;
+      }
+    }
+  }
+}

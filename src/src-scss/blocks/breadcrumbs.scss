@@ -1,0 +1,66 @@
+.breadcrumbs {
+  $c: &;
+
+  display: inline-block;
+
+  @include blockBase;
+
+  padding: 16px 20px;
+
+  &__list {
+    @include reset-ul;
+    @include dflex;
+  }
+
+  &__item {
+    position: relative;
+
+    padding-left: 32px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:nth-child(n+2) {
+      &:after {
+        @include pseudo-elem;
+        @include svgBackground($arrow);
+
+        left: calc(16px - 4px);
+        top: calc(50% - 4px);
+
+        width: 8px;
+        height: 8px;
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+
+    font-size: 12px;
+    font-weight: 600;
+    color: $gray;
+    text-decoration: none;
+
+    transition: color $transition-time;
+
+    &:hover {
+      color: $black;
+    }
+
+    .active > & {
+      font-weight: 400;
+      color: $black;
+      
+
+      &:hover {
+        color: $violet;
+      }
+    }
+  }
+}

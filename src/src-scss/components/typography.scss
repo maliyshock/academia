@@ -1,5 +1,12 @@
 @font-face {
   font-family: 'open-sans';
+  src: url('#{$path-to-fonts}/open-sans/open-sans-italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'open-sans';
   src: url('#{$path-to-fonts}/open-sans/open-sans-bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
@@ -24,22 +31,20 @@ body {
   color: black;
   font-size: 14px;
   font-family: 'open-sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 150%;
   -webkit-font-smoothing: antialiased;
 }
 
-* {
+*, :after, :before {
   box-sizing: border-box;
-
-  line-height: 130%;
 }
 
 p {
-  line-height: 150%;
   max-width: 100%;
 }
 
-.text--white {
-  color: white;
+.text--color-violet {
+  color: $violet;
 }
 
 .inline-list {
@@ -66,52 +71,43 @@ p {
   }
 }
 
+.h1, h1{
+  line-height: 1.3em;
+}
 
-.h1 {
-  margin-bottom: 20px;
+.h3, h3, .h4, h4, .h5, h5 {
+  line-height: 1.5em;
+}
 
-  font-weight: 600;
-  font-size: 32px;
+.h1, h1 {
+  font-size: 52px;
 }
 
 .h2 {
-  margin-bottom: .3em;
-
-  font-weight: 400;
-
-  @include for-phone-up {
-    font-size: between(24px, 36px, $phone-from, $tablet-landscape);
-  }
-
-  @include for-tablet-landscape-up {
-    font-size: 36px;
-  }
-
-  & + .text--big {
-    margin-top: 20px;
-  }
+  @include h2;
 }
 
 .h3 {
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-
-  @include for-phone-up {
-    font-size: between(20px, 30px, $phone-from, $tablet-landscape);
-  }
+  font-size: 20px;
 
   @include for-tablet-landscape-up {
-    font-size: 30px;
+    font-size: 24px;
+  }
+}
+
+.h4 {
+  font-size: 18px;
+
+  @include for-tablet-landscape-up {
+    font-size: 20px;
   }
 }
 
 .h5 {
-  font-size: 20px;
-}
-
-
-.h6 {
-  font-size: 16px;
   font-weight: 600;
+  font-size: 14px;
+
+  @include for-tablet-landscape-up {
+    font-size: 16px;
+  }
 }

@@ -1,9 +1,12 @@
 .row {
   display: flex;
-  align-items: center;
+  //align-items: center;
   flex-wrap: wrap;
 
-  @include for-tablet-portrait-up {
+  margin-left: -32px;
+  margin-right: -32px;
+
+  @include for-tablet-landscape-up {
     flex-wrap: nowrap;
   }
 }
@@ -12,6 +15,10 @@
   flex-grow: 1;
   flex-shrink: 0;
   width: 100%;
+  flex-basis: 100%;
+
+  padding-left: 32px;
+  padding-right: 32px;
 
   @include for-tablet-portrait-up {
     width: 0;

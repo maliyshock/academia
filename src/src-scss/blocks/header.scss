@@ -13,12 +13,18 @@
   }
 
   &__logo {
-    margin-right: 32px;
+    @include for-tablet-landscape-up {
+      margin-right: 32px;
+    }
   }
 
   &__side {
     @include dflex;
     align-items: center;
+
+    &:last-child {
+      margin-left:auto;
+    }
 
     &--padding-left {
       @include for-tablet-landscape-up {

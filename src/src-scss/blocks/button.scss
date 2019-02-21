@@ -30,7 +30,7 @@
   &:hover {
     background-color: darken( adjust-hue($button, -2), 4%);
     transform: translateY(-2px);
-    @include shadow;
+    @include highlighted($button);
   }
 
   &__text {
@@ -47,7 +47,26 @@
 
     border-radius: $bd-radius;
 
-    font-size: 12px;
+
+    #{$c}__text {
+      font-size: 12px;
+    }
+  }
+
+  &--size-big {
+    min-width: 160px;
+
+    padding: 25px 32px;
+
+    border-radius: $bd-radius;
+
+    #{$c}__text {
+      font-size: 18px;
+    }
+  }
+
+  &--highlighted {
+    @include highlighted($button);
   }
 
   &--no-transform {

@@ -10,34 +10,48 @@ header.header
                 a.header__logo.logo(href='')
                     include ../../images/logo.svg
 
-                nav.navigation.navigation--font-uppercase.js-navigation
+                nav.navigation.navigation--mobile-behavior.navigation--font-uppercase.js-navigation
+
                     ul.navigation__list
                         li.navigation__item
                             a.navigation__link(href='#') О нас
                         li.navigation__item
                             a.navigation__link(href='#') Курсы
                         li.navigation__item
-                            a.navigation__link(href='#') Истории Учеников
-                            span.counter 67
+                            a.navigation__link(href='#')
+                                span.navigation__text-wrapper
+                                    span.navigation__text Истории Учеников
+                                    span.counter 67
                         li.navigation__item
-                            a.navigation__link(href='#') Отзывы
-                            span.counter 11
-                    .navigation__close.js-menu-trigger
-                        include ../../images/cross.svg
+                            a.navigation__link(href='#')
+                                span.navigation__text-wrapper
+                                    span.navigation__text Отзывы
+                                    span.counter 11
 
-                    ul.list.navigation__list.navigation__list--hidden-frrom-landscape
-                        ul.navigation__list
-                            li.navigation__item
-                                a.navigation__link(href='#') Отдел заботы
-                            li.navigation__item
-                                a.navigation__link(href='#') Статьи
-                            li.navigation__item
-                                a.navigation__link(href='#') Партнерство
-                            li.navigation__item
-                                a.navigation__link(href='#') Вакансии
+                    .contacts.contacts--hidden-from-portrait
+                        .contacts__side
+                            a.link.link--no-transform.h5.contacts__text(href="tel:8-800-200-30-30") 8 800–200–30–30
+                            p.contacts__text пн-пт, 10-19 по МСК
+                        .contacts__side
+                            +button('Заказать вонок', '')
+
+                    ul.list.navigation__list.navigation__list--hidden-from-landscape
+                        li.navigation__item
+                            a.navigation__link(href='#') Отдел заботы
+                        li.navigation__item
+                            a.navigation__link(href='#') Статьи
+                        li.navigation__item
+                            a.navigation__link(href='#') Партнерство
+                        li.navigation__item
+                            a.navigation__link(href='#') Вакансии
+
+                    .navigation__close.close.js-menu-trigger
+                        .close__icon
+                            include ../../images/cross.svg
+
 
             .header__side
-                +contacts
+                +contacts('contacts--show-from-portrait')
                     +button('Заказать вонок', 'button--size-small')
 
 
@@ -57,5 +71,6 @@ header.header
             .header__side
                 a.header__link.link(href='#')
                     span.icon
-                        include ../../images/login.svg
-                    span.link__text Вход для учеников
+                        .icon__image
+                            include ../../images/login.svg
+                        span.icon__text.link__text Вход для учеников

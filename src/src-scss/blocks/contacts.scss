@@ -2,16 +2,44 @@
   @include dflex;
   align-items: center;
 
+  @include for-tablet-landscape-up {
+    justify-content: flex-end;
+  }
+
+  &--show-from-portrait {
+    display: none;
+
+    @include for-tablet-portrait-up {
+      display: flex;
+    }
+  }
+
+  &--hidden-from-portrait {
+    display: block;
+
+    @include for-tablet-portrait-up {
+      display: none;
+    }
+  }
+
   &__side {
     margin-top: 4px;
     margin-bottom: 4px;
 
     &:first-child {
       margin-right: 32px;
+
+      @include for-tablet-landscape-up {
+        margin-right: 0;
+      }
     }
 
     &:last-child {
       padding-right: 0;
+
+      @include for-tablet-landscape-up {
+        margin-left: 32px;
+      }
     }
   }
 

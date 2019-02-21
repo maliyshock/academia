@@ -3,32 +3,23 @@
 
   width: 100%;
 
-  color: $gray;
-  font-size: 16px;
+  &--size-small{
+    font-size: 16px;
+    font-weight: 600;
 
-  &--weight-fat {
-    font-weight: 700;
-  }
-
-  &--color-blue {
-    color: $blue;
-  }
-
-  & + & {
-    margin-top: 10px;
-  }
-
-  &__tr {
-    &:nth-child(2n+1) {
-      background-color: $light-gray;
+    & #{$c}__td:first-child {
+      width: 1px;
+      padding-right: 16px;;
     }
   }
 
   &__td {
-    padding: 15px;
-
-    &:last-child {
-      text-align: right;
+    &:first-child {
+      vertical-align: middle;
     }
+  }
+
+  & + & {
+    margin-top: 10px;
   }
 }
