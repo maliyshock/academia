@@ -6,6 +6,9 @@
   flex-direction: column;
 
   height: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
   
   overflow: hidden;
 
@@ -27,6 +30,18 @@
       background-color: darken( adjust-hue($light-blue, -2), 4%);
       border-radius: 0;
       transition: none;
+    }
+  }
+
+  &--body-fat {
+    #{$c}__body {
+      padding-top: 12px;
+    }
+    #{$c}__body, #{$c}__header {
+      @include for-tablet-portrait-up {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
     }
   }
 
@@ -70,8 +85,16 @@
     }
   }
 
-  &__icons {
+  &__achivements {
     margin-bottom: 8px;
+  }
+
+  &__icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    padding: 20px 20px 0 20px;
   }
 
   &__title {
@@ -83,5 +106,9 @@
     margin-bottom: 8px;
 
     color: $gray;
+  }
+
+  &--text-center {
+    text-align: center;
   }
 }

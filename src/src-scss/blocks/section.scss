@@ -8,6 +8,10 @@
     background-color: $light-blue;
   }
 
+  &--vertical-indents {
+    @include coloredBlockIndents;
+  }
+
   &--indents {
     @include indents;
   }
@@ -16,12 +20,19 @@
     @include sm-indents;
   }
 
-  &--width-full {
+  &--width-extended {
     #{$c}__title-area {
-      max-width: 1240px;
+      position: relative;
     }
     #{$c}__inner {
-      max-width: 100%;
+      position: relative;
+
+      max-width: 1350px;
+
+      @include for-tablet-landscape-up {
+        padding-left: 60px;
+        padding-right: 60px;
+      }
     }
   }
 

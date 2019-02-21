@@ -1,0 +1,7 @@
+mixin card-icon(title, link, text)
+    a.card.card--body-fat.card--text-center(class=classNames href=link)
+        +icon('card__icon icon--size-giant')
+            block
+        .card__body
+            h4.h4.card__title #{title}
+            p.card__text #{text}

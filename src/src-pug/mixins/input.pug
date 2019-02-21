@@ -1,5 +1,5 @@
 mixin input(type, value, placeholder, modificators)
-    label.input.form__input
-        span.field-text__inner
-            input.field-text__input.js-field(type=type value=value, class=modificators)
-            span.field-text__name #{placeholder}
+    label.input.form__input(class=modificators)
+        span.input__inner
+            input.input__field.js-field(type=type value=value)
+            span.input__name #{placeholder}

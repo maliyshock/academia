@@ -1,0 +1,5 @@
+.block-base {
+  @include blockBase;
+  @include shadow;
+  background-color: $white;
+}

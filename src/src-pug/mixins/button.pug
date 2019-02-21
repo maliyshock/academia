@@ -1,3 +1,7 @@
 mixin button(text, modificator, target)
-    button.button(class=modificator data-target=target)
-        span.button__text #{text}
+    if(!target)
+        a.button(class=modificator href=link)
+            span.button__text #{text}
+    else
+        button.button(class=modificator data-target=target)
+            span.button__text #{text}

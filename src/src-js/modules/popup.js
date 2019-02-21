@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import {fadeIn,fadeOut} from './utils'
+// import {fadeIn,fadeOut} from './utils'
 // import {pubSub} from './pubSub'
 
 export let popup = {
@@ -16,13 +16,13 @@ export let popup = {
         // this.$popupInners = $('.js-popup-inner');
     },
 
-    showPopup: function (target) {
-        fadeIn(target);
+    showPopup: function ($target) {
+        $target.css({'display':'flex'}).hide(0).fadeIn();
         this.$body.addClass('ovh')
     },
 
-    hidePopup: function (target) {
-        fadeOut(target);
+    hidePopup: function ($target) {
+        $target.fadeOut();
         this.$body.removeClass('ovh');
     },
 

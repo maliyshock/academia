@@ -1,39 +1,83 @@
 .form {
   $c: &;
 
-  &--direction-horizontal {
-    @include dflex;
-    justify-content: center;
+  &--width-strict {
+    max-width: 666px;
 
-    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    margin-left:auto;
-    margin-right:auto;
-
-    @include for-tablet-landscape-up {
-      flex-wrap: nowrap;
-
-      max-width: 100%;
-    }
-
-    #{$c}__item {
-      width: 100%;
-      max-width: 270px;
-
-      margin-bottom: 25px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+  &__row {
+    &--adjustment-inline {
+      @include dflex;
+      justify-content: space-between;
+      align-items: center;
 
       @include for-tablet-landscape-up {
-        margin-right: 30px;
-        margin-bottom: 0;
+        flex-wrap: nowrap;
+      }
 
-        &:last-child {
-          margin-right: 0;
+      #{$c}__item + #{$c}__item{
+          margin-top: 32px;
+
+        @include for-tablet-landscape-up {
+          margin-top: 0;
         }
       }
+
+      #{$c}__item {
+        flex-grow: 1;
+        width: 100%;
+      }
+
+      & > .input {
+        @include for-tablet-landscape-up {
+          max-width: 380px;
+        }
+      }
+      & > .button {
+        @include for-tablet-landscape-up {
+          max-width: 250px;
+        }
+      }
+    }
+  }
+
+
+  &__body {
+    flex-grow: 1;
+
+    overflow-y: auto;
+    position: relative;
+
+    height: 100%;
+
+    padding: 16px 16px 32px;
+
+    @include for-tablet-landscape-up {
+      padding: 20px 20px 40px;
+    }
+  }
+
+  &__header {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 12px 45px 12px 20px;
+
+    background-color: $violet;
+
+    border-radius: $big-bd-radius $big-bd-radius 0 0;
+
+    color: $white;
+
+    @include for-tablet-portrait-up {
+      justify-content: center;
+
+      padding: 12px 20px;
     }
   }
 }

@@ -42,10 +42,10 @@ const common = merge([
                 filename: 'story.html',
                 template: PATHS.source + '/src-pug/story.pug'
             }),
-            // new webpack.ProvidePlugin({
-            //     $: 'jquery',
-            //     jQuery: 'jquery'
-            // }),
+            new HtmlWebpackplugin({
+                filename: 'main.html',
+                template: PATHS.source + '/src-pug/main.pug'
+            }),
             new CopyWebpackPlugin([
                 { context: PATHS.source + '/images', from: '**/*', to: 'images' },
                 { context: PATHS.source + '/fonts', from: '**/*', to: 'fonts' }

@@ -5,16 +5,47 @@
 
 
   &--color-violet {
-    & svg {
-      fill: $violet;
-    }
+    @include coloriseIcon($violet);
+  }
 
-    #{$c}__text {
-      color: $violet;
+  &--color-white {
+    @include coloriseIcon($white);
+  }
+
+  &--color-black {
+    @include coloriseIcon($black);
+  }
+
+  &--size-bigger {
+    #{$c}__image {
+      width: 44px;
+      height: 44px;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+
+      &:last-child {
+        margin-left: 10px;
+      }
+
+      &:only-child {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &--size-giant {
+    #{$c}__image {
+      width: 84px;
+      height: 84px;
     }
   }
 
   &__text {
+    max-width: 160px;
+
     font-size: 16px;
   }
   

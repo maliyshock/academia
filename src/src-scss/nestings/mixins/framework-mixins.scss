@@ -248,7 +248,7 @@
 
 @mixin wrapper {
   width: 100%;
-  max-width: 1280px;
+  max-width: $wrapper-width;
 
   margin-left: auto;
   margin-right: auto;
@@ -396,4 +396,14 @@ $columns: 12;
 
 @mixin f-col($num) {
   flex-basis: 100% / $columns * $num;
+}
+
+@mixin coloriseIcon($color) {
+  & svg {
+    fill: $color;
+  }
+
+  .icon__text {
+    color: $color;
+  }
 }

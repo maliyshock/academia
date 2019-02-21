@@ -1,5 +1,10 @@
-mixin text-banner(text, modificator)
-    article.text-banner
-        h5.h5.text-banner__text #{text}
+mixin text-banner(title, text, modificator)
+    article.text-banner(modificator)
+        if(title)
+            h2.h2.text-banner__title #{title}
+            h4.h4.text-banner__title #{text}
+        else
+            h5.h5.text-banner__text #{text}
+
 
 

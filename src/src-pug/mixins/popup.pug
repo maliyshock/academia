@@ -1,0 +1,7 @@
+mixin popup(modificators, header)
+    article.popup.js-popup(class=modificators)
+        .popup__inner
+            button.popup__close.js-popup-close
+                +icon('icon--color-white')
+                    include ../../images/cross.svg
+            block

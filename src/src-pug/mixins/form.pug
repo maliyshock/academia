@@ -1,0 +1,16 @@
+mixin form(header)
+    if(header)
+        header.form__header
+            h2.popup__title.h2 #{header}
+    .form__body
+        .page__row
+            include ../parts/form-icons
+        .page__row
+            form.form.form--width-strict
+                .form__row.form__row--adjustment-inline
+                    +input('tel', '+7', 'Телефон', 'form__item')
+                    +button(
+                        'Отправить',
+                        'button--highlighted button--width-full js-show-popup form__item',
+                        '.js-popup-form'
+                    )
