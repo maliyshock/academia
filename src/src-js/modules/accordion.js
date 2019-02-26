@@ -8,7 +8,7 @@ export let accordion = {
     bindEvents() {
         this.$accordions.each( (index, element) => {
             let $accordion = $(element);
-            let $head = $accordion.find('.js-accordion-head');
+            let $head = ( $accordion.hasClass('js-accordion-head') ) ? $accordion : $accordion.find('.js-accordion-head');
             let $body = $accordion.find('.js-accordion-body');
 
             $head.on('click', (e) => {
@@ -23,4 +23,4 @@ export let accordion = {
         this.cacheDom();
         this.bindEvents();
     }
-}
+};

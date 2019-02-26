@@ -1,12 +1,14 @@
-mixin title-area(title, subTitle, button)
+mixin title-area(object)
     .section__title-area.title-area
-        if(button && title)
+        if(object.button && object.title)
             .title-area__action-title
-                h2.title-area__h2.section__title #{title}
-                +button(button, 'button--color-violet')
-        else if (title)
-            h2.h2.title-area__title.section__title #{title}
-        if(subTitle)
-            h5.h5.section__title.section__title--color-dark-gray #{subTitle}
+                h2.title-area__h2.section__title #{object.title}
+                +button({title:object.button, modificator:'button--color-violet'})
+
+        else if (object.title)
+            h2.h2.title-area__title.section__title #{object.title}
+
+        if(object.subTitle)
+            h4.h4.section__title.section__title--color-dark-gray #{object.subTitle}
 
         block

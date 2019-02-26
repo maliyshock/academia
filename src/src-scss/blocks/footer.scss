@@ -5,6 +5,25 @@
 
   margin-top: 60px;
 
+  & .contacts {
+    @include for-phone-only {
+      text-align: center;
+    }
+  }
+
+  & .contacts__side {
+    @include for-phone-only {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  & .list {
+    @include for-phone-only {
+      justify-content: center;
+    }
+  }
+
   &__inner {
     @include dflex;
     @include wrapper;
@@ -37,6 +56,10 @@
     margin-top: 10px;
     margin-bottom: 10px;
 
+    @include for-tablet-landscape-up {
+      padding-right: 60px;
+    }
+
     @include for-phone-only {
       margin-top: 20px;
       margin-bottom: 0;
@@ -55,7 +78,7 @@
 
   &__floor {
     &--color-light-blue {
-      @include smallColoredBlockIndents(false);
+      @include smallColoredBlockIndents;
 
       background-color: $light-blue;
     }

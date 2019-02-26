@@ -1,7 +1,18 @@
-mixin card-icon(title, link, text)
-    a.card.card--body-fat.card--text-center(class=classNames href=link)
-        +icon('card__icon icon--size-giant')
-            block
-        .card__body
-            h4.h4.card__title #{title}
-            p.card__text #{text}
+mixin card-icon(object)
+    .card__body
+        block
+        if(object.title)
+            h3.h3.card__title #{object.title}
+
+        if(object.subtitle)
+            h5.h5.card__title #{object.subtitle}
+
+        p.card__text #{object.text}
+
+        if(object.link)
+            p.card__more #{object.link}
+
+    if(object.notice)
+        .card__footer
+            p.card__notice #{object.notice}
+

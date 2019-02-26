@@ -1,8 +1,30 @@
 .cards {
   $c: &;
-  @include sm-indents;
+
+  &--accordionable {
+    overflow-x: auto;
+
+    #{$c}__list {
+      display: grid;
+      grid-gap: 20px;
+      grid-template-areas:
+              "item item item item"
+              "desc desc desc desc";
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      min-width: 1240px;
+
+      @include for-desktop-up {
+        grid-gap: 20px 60px;
+      }
+    }
+  }
 
   &--row-one {
+    @include for-phone-only {
+      justify-content: center;
+    }
+
     #{$c}__list {
       display: flex;
       flex-wrap: nowrap;
@@ -12,20 +34,13 @@
     #{$c}__item {
       flex-grow: 1;
       flex-shrink: 0;
+
       padding-right: 5px;
       padding-left: 5px;
 
       width: 100%;
       //max-width: 386px;
       height: auto;
-
-      @include for-tablet-portrait-up {
-        margin-right: 20px;
-      }
-
-      @include for-tablet-landscape-up {
-        margin-right: 60px;
-      }
 
       &:first-child {
         padding-left: 0;
@@ -55,5 +70,34 @@
     &--small-card-size {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
+
+    &--smallest-card-size {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+  }
+
+  &__description {
+    grid-area: desc;
+    position: sticky;
+    left: 0;
+
+    display: none;
+
+    max-width: 100vw;
+
+    padding: 32px;
+
+    background-color: $light-blue;
+  }
+
+  &__description-title {
+    margin-bottom: 16px;
+
+    font-size: 20px;
+    color: $violet;
+  }
+
+  &__description-text {
+    font-size: 16px;
   }
 }

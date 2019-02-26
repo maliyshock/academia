@@ -8,17 +8,17 @@ html(lang='ru')
         include parts/header
 
         main.page__inner
-            section.section.section--indents
+            section.section.section--sm-padding-top
                 .section__inner
                     +breadcrumbs(['Истории учеников', 'Марк Тишман'])
 
-            section.section.section--bg-light-blue
+            section.section.section--bg-light-blue.section--sm-margin-top
                 +text-banner(
                     false,
                     'Академия Интернет Бизнеса — это Первый в России и СНГ образовательный центр по созданию и развитию бизнеса в электронной коммерции. Мы приглашаем компетентных экспертов для передачи лучшего опыта нашим студентам.'
                 )
 
-            article.section.story.section--small-indents
+            article.section.story.section--sm-padding-top
                 .section__inner
                     .row
 
@@ -44,72 +44,49 @@ html(lang='ru')
                                 p.h4.quote__text
                                     span Его так увлекла музыка, что даже во время полугодовой поездки в Штаты после победы в конкурсе на знание английского языка он подрабатывал частными занятиями с детьми. Отец категорически не воспринимал желание сына связать свою жизнь со сценой, он считал достойными совсем другие профессии — дипломата, юриста, инженера.
 
-
-                    +story_block(
-                        'Детство',
-                        [
-                            'Академия Интернет Бизнеса — это Первый в России и СНГ образовательный центр по созданию и развитию бизнеса в электронной коммерции. Мы приглашаем компетентных экспертов для передачи лучшего опыта нашим студентам.',
-                            'Его так увлекла музыка, что даже во время полугодовой поездки в Штаты после победы в конкурсе на знание английского языка он подрабатывал частными занятиями с детьми. Отец категорически не воспринимал желание сына связать свою жизнь со сценой, он считал достойными совсем другие профессии — дипломата, юриста, инженера.',
-                        ]
-                    )
-
-                    +story_block(
-                        'Наемная работа',
-                        [
-                            'Академия Интернет Бизнеса — это Первый в России и СНГ образовательный центр по созданию и развитию бизнеса в электронной коммерции. Мы приглашаем компетентных экспертов для передачи лучшего опыта нашим студентам.',
-                        ]
-                    )
-
-                    +story_block(
-                        'Вдохновение и поддержка',
-                        [
-                            'Академия Интернет Бизнеса — это Первый в России и СНГ образовательный центр по созданию и развитию бизнеса в электронной коммерции. Мы приглашаем компетентных экспертов для передачи лучшего опыта нашим студентам.',
-                            'Его так увлекла музыка, что даже во время полугодовой поездки в Штаты после победы в конкурсе на знание английского языка он подрабатывал частными занятиями с детьми. Отец категорически не воспринимал желание сына связать свою жизнь со сценой, он считал достойными совсем другие профессии — дипломата, юриста, инженера.',
-                        ]
-                    )
-
-            +call-to-action('Начните действовать прямо сейчас', 'Записаться на обучение')
+                    - for(var i = 0; i < 3; i++)
+                        +story_block({
+                            title: 'Детство',
+                            list: [
+                                'Академия Интернет Бизнеса — это Первый в России и СНГ образовательный центр по созданию и развитию бизнеса в электронной коммерции. Мы приглашаем компетентных экспертов для передачи лучшего опыта нашим студентам.',
+                                'Его так увлекла музыка, что даже во время полугодовой поездки в Штаты после победы в конкурсе на знание английского языка он подрабатывал частными занятиями с детьми. Отец категорически не воспринимал желание сына связать свою жизнь со сценой, он считал достойными совсем другие профессии — дипломата, юриста, инженера.'
+                            ]
+                        })
 
 
-            article.section.section--indents.section--width-extended
+            article.call-to-action.section.section--bg-light-blue.section--paddings-vertical.section--margin-top
+                .section__inner
+                    +call-to-action({title:'Начните действовать прямо сейчас', button:'Записаться на обучение'})
+
+
+            article.section.section--padding-top.section--width-extended
 
                 .section__inner
-                    +title-area('Другие истории')
+                    +title-area({title: 'Другие истории'})
 
-                        .cards.cards--row-one.slider.swiper-container.js-stories-slider
-                            ul.cards__list.swiper-wrapper
+                .section__inner
+                    .cards.cards--row-one.slider.slider--has-cards.swiper-container.js-stories-slider
+                        ul.cards__list.swiper-wrapper
+                            - for(var i = 0; i < 6; i++)
                                 li.slider__slide.cards__item.swiper-slide
-                                    // title, link, tag, date, classNames
-                                    +card('1Построение воронки продаж', '#', '# старт бизнеса', '14 февраля 2019', 'cards__card' )
-                                        p.card__text Сначала начала с колясок Yoya , сделала заказ из Китая. Правда пока ждала, а это заняло около месяца, нашла поставщика в Москве с аналогичными колясками Babytime.
-                                li.slider__slide.cards__item.swiper-slide
-                                    +card('2Построение воронки продаж', '#', '# старт бизнеса', '14 февраля 2019', 'cards__card' )
-                                        p.card__text Сначала начала с колясок Yoya , сделала заказ из Китая. Правда пока ждала, а это заняло около месяца, нашла поставщика в Москве с аналогичными колясками Babytime.
-                                li.slider__slide.cards__item.swiper-slide
-                                    +card('3Построение воронки продаж', '#', '# старт бизнеса', '14 февраля 2019', 'cards__card' )
-                                        p.card__text Сначала начала с колясок Yoya , сделала заказ из Китая. Правда пока ждала, а это заняло около месяца, нашла поставщика в Москве с аналогичными колясками Babytime.
-                                li.slider__slide.cards__item.swiper-slide
-                                    +card('4Построение воронки продаж', '#', '# старт бизнеса', '14 февраля 2019', 'cards__card' )
-                                        p.card__text Сначала начала с колясок Yoya , сделала заказ из Китая. Правда пока ждала, а это заняло около месяца, нашла поставщика в Москве с аналогичными колясками Babytime.
-                                li.slider__slide.cards__item.swiper-slide
-                                    +card('5Построение воронки продаж', '#', '# старт бизнеса', '14 февраля 2019', 'cards__card' )
-                                        p.card__text Сначала начала с колясок Yoya , сделала заказ из Китая. Правда пока ждала, а это заняло около месяца, нашла поставщика в Москве с аналогичными колясками Babytime.
-                                li.slider__slide.cards__item.swiper-slide
-                                    +card('6Построение воронки продаж', '#', '# старт бизнеса', '14 февраля 2019', 'cards__card' )
+                                    +card({
+                                        title: 'Евгения Белова, 34 года',
+                                        link: '#',
+                                        classNames: 'cards__card',
+                                        table: true
+                                    })
                                         p.card__text Сначала начала с колясок Yoya , сделала заказ из Китая. Правда пока ждала, а это заняло около месяца, нашла поставщика в Москве с аналогичными колясками Babytime.
 
-                            button.slider__button.slider__button--prev.js-story-button-prev
-                                +icon('icon--size-micro')
-                                    include ../images/arrow.svg
-                            button.slider__button.slider__button--next.js-story-button-next
-                                +icon('icon--size-micro')
-                                    include ../images/arrow.svg
 
-            +popup('js-popup-form', 'Помочь с выбором?')
-                +form('Помочь с выбором?')
+                        button.slider__button.slider__button--prev.js-story-button-prev
+                            +icon('icon--size-micro')
+                                include ../images/arrow.svg
+                        button.slider__button.slider__button--next.js-story-button-next
+                            +icon('icon--size-micro')
+                                include ../images/arrow.svg
 
 
-
+        include parts/form-popup
         include parts/footer
 
 include parts/scripts

@@ -4,14 +4,17 @@ doctype html
 html(lang='ru')
     head
         include parts/head
+        //include parts/map-script
+
+
     body.page
         include parts/header
 
         main.page__inner
 
-            section.section.section--indents.section--width-extended
+            section.section.section--sm-padding-top.section--width-extended
                 .section__inner
-                    .slider.slider--bg-violet.slider--size-normal.swiper-container.js-main-slider
+                    .slider.slider--ovh.slider--bg-violet.swiper-container.js-main-slider
                         .slider__counter.js-main-pagination
 
                         ul.slider__list.slider__list--corners-rounded.slider__list--ovh.swiper-wrapper
@@ -20,30 +23,31 @@ html(lang='ru')
                                 .slider__content
                                     h1.slider__title Академия Интернет Бизнеса
                                     h5.slider__sub-title Центр создания и развития интернет бизнеса
-                                    +button('Бесплатная Консультация', ' slider__slide-button button--size-big', '#')
+                                    +button({title:'Бесплатная Консультация', modificator:' slider__slide-button button--size-big', href:'#', tag:'a'})
 
-                                .slider__img-container(style='background-image:url("images/placeholders/woman.jpg")')
-                                    //include ../images/placeholders/woman.jpg
-                                    //img(src='../images/placeholders/woman.jpg')
+                                .slider__img-container
+                                    include ../images/placeholders/slider6.svg
+                                    img(srcset='../images/placeholders/woman.jpg 1x, ../images/placeholders/woman@2x.jpg 2x' alt='Это хороший человек')
 
                             li.slider__slide.swiper-slide
                                 .slider__content
                                     h1.slider__title Академия Интернет Бизнеса
                                     h5.slider__sub-title Центр создания и развития интернет бизнеса
-                                    +button('Бесплатная Консультация', ' slider__slide-button button--size-big', '#')
+                                    +button({title:'Бесплатная Консультация', modificator:' slider__slide-button button--size-big', href:'#', tag:'a'})
 
-                                .slider__img-container(style='background-image:url("images/placeholders/evgenya.jpg")')
-                                    //include ../images/placeholders/woman.jpg
-                                    //img(src='../images/placeholders/woman.jpg')
+                                .slider__img-container
+                                    include ../images/placeholders/slider6.svg
+                                    img(srcset='../images/placeholders/woman.jpg 1x, ../images/placeholders/woman@2x.jpg 2x' alt='Это хороший человек')
 
-                    button.slider__button.slider__button--prev.js-story-button-prev
+
+                    button.slider__button.slider__button--prev.js-main-button-prev
                         +icon('icon--size-micro')
                             include ../images/arrow.svg
-                    button.slider__button.slider__button--next.js-story-button-next
+                    button.slider__button.slider__button--next.js-main-button-next
                         +icon('icon--size-micro')
                             include ../images/arrow.svg
 
-            section.section.section--vertical-indents
+            section.section.section--paddings-vertical
                 +text-banner(
                     '78% выпускников академии открывают свой бизнес в течение 2 лет',
                     'За 7 лет обучили 24 789 человек по всей России'
@@ -51,32 +55,150 @@ html(lang='ru')
 
             section.section
                 .section__inner
+                    .map(id='myMap')
+
+            section.section.section--margin-top
+                .section__inner
                     .cards
                         ul.cards__list.cards__list--small-card-size
-                            li.cards__item
-                                // title, link, текст
-                                +card-icon('Год основания', '#', 'В декабре академия отпраздновала день рождения. Было выпито 3519 бокалов советского шампанского' )
-                                    include ../images/calendar-colorized.svg
-                            li.cards__item
-                                // title, link, текст
-                                +card-icon('Год основания', '#', 'В декабре академия отпраздновала день рождения. Было выпито 3519 бокалов советского шампанского' )
-                                    include ../images/chat.svg
-                            li.cards__item
-                                // title, link, текст
-                                +card-icon('Год основания', '#', 'В декабре академия отпраздновала день рождения. Было выпито 3519 бокалов советского шампанского' )
-                                    include ../images/hat.svg
+                            - for(var i = 0; i < 3; i++)
+                                li.cards__item
+                                    // title, link, текст
+                                    .card.card--body-fat.card--text-center.card--text-short
+                                        //title, text, subtitle, link, notice
+                                        +card-icon({
+                                            title: 'Год основания',
+                                            text: 'В декабре академия отпраздновала день рождения. Было выпито 3519 бокалов советского шампанского'
+                                        })
+                                            +icon('card__icon icon--size-giant')
+                                                if(i === 0)
+                                                    include ../images/calendar-colorized.svg
+                                                else if (i === 1)
+                                                    include ../images/chat.svg
+                                                else
+                                                    include ../images/hat.svg
 
-            section.section.section.section--bg-light-blue.section--vertical-indents
+            section.section.section--margin-top.section--margin-top.section--width-extended
+                .section__inner
+
+                    +title-area({title:'Программы обучения'})
+
+                    .programms
+                        ul.list.list--big-margins.programms__list
+                            - var classNames = ['','programm--color-blue','programm--color-green','programm--color-purple','programm--color-orange']
+                            - for(var i = 0; i < 5; i++)
+                                li.list__item.programms__item
+                                    +programm({
+                                        title:'SEO - оптимизация для интернет магазинов',
+                                        text: 'Практический онлайн-курс по продвижению интернет-магазинов в ТОП выдачи поисковых систем.',
+                                        className: classNames[i]
+                                    })
+                                        if(i === 0)
+                                            include ../images/courses/seo.svg
+                                        else if (i === 1)
+                                            include ../images/courses/consulting.svg
+                                        else if (i === 2)
+                                            include ../images/courses/store.svg
+                                        else if (i === 3)
+                                            include ../images/courses/insta.svg
+                                        else if (i === 4)
+                                            include ../images/courses/direct.svg
+
+
+            section.section.section--width-extended.section--margin-top
+                .section__inner
+                    +title-area({title:'Программы обучения'})
+
+                .section__inner
+                    .cards.cards--row-one.slider.slider--has-cards.swiper-container.js-events-slider
+                        ul.cards__list.swiper-wrapper
+                            - for(var i = 0; i < 9; i++)
+                                if(!i%3)
+                                    - var notice = 'Только для учеников'
+                                else
+                                    - var notice = false
+
+                                li.slider__slide.cards__item.swiper-slide
+                                    a.card.cards__card.card--text-center.card--text-weak(href='#')
+                                        +card-icon({
+                                            text: 'Подготовьтесь к работе. Изучите инструменты',
+                                            subTitle: 'Вебинар 2.0',
+                                            link: 'Подробнее',
+                                            notice: notice
+                                        })
+                                            if(i===0)
+                                                +icon('card__icon icon--size-bigger icon--bg-yellow')
+                                                    include ../images/events/webinar.svg
+                                            else if (i===1)
+                                                +icon('card__icon icon--size-bigger icon--bg-violet')
+                                                    include ../images/events/workshop.svg
+                                            else if (i === 2)
+                                                +icon('card__icon icon--size-bigger icon--bg-black')
+                                                    include ../images/events/design.svg
+                                            else if (i === 3)
+                                                +icon('card__icon icon--size-bigger icon--bg-gray')
+                                                    include ../images/events/webinar.svg
+                                            else if (i === 4)
+                                                +icon('card__icon icon--size-bigger icon--bg-yellow')
+                                                    include ../images/events/workshop.svg
+                                            else
+                                                +icon('card__icon icon--size-bigger icon--bg-violet')
+                                                    include ../images/events/design.svg
+
+
+                        button.slider__button.slider__button--prev.js-events-button-prev
+                            +icon('icon--size-micro')
+                                include ../images/arrow.svg
+                        button.slider__button.slider__button--next.js-events-button-next
+                            +icon('icon--size-micro')
+                                include ../images/arrow.svg
+
+
+            section.section.section.section--bg-light-blue.section--paddings-vertical.section--margin-top
                 .section__inner
                     .block-base
-                        +form('Помочь с выбором?')
+                        +form({title:'Помочь с выбором?',icons: true})
 
-            +call-to-action('Начните действовать прямо сейчас', 'Записаться на обучение')
+            section.section.section--margin-top.section--width-extended
+                .section__inner
+                    +title-area({title:'Новые истории успеха учеников'})
+                .section__inner
+                    include parts/student-stories
+
+            section.section.section--margin-top
+                .section__inner
+                    +title-area({title:'Команда'})
+                .section__inner
+                    .cards
+                        ul.cards__list.cards__list--smallest-card-size
+                            - for(var i = 0; i < 6; i++)
+                                li.cards__item
+                                    // title, link, tag, date, classNames
+                                    +card({
+                                        title: 'Евгения Белова',
+                                        link: '#',
+                                        classNames: 'cards__card',
+                                        achivements: (i === 5)
+                                    })
+                                        p.card__text Основательница Академии
 
 
-        +popup('js-popup-form', 'Помочь с выбором?')
-            +form('Помочь с выбором?')
+            article.call-to-action.section.section--bg-light-blue.section--paddings-vertical.section--margin-top
+                .section__inner
+                    +call-to-action({title:'Начните действовать прямо сейчас', button:'Записаться на обучение'})
 
+            section.section.section--margin-top.section--width-extended
+                .section__inner
+                    .logos
+                        ul.logos__list
+                            - for(var i = 0; i < 12; i++)
+                                li.logos__item
+                                    img(srcset='http://placehold.it/'+(i+1)+'00x200 1x, http://placehold.it/200x'+(i+1)+'00 2x' alt='Компания такая-то')
+
+
+
+
+        include parts/form-popup
         include parts/footer
 
 include parts/scripts

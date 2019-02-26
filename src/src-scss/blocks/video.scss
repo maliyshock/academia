@@ -1,0 +1,40 @@
+.video {
+  position: relative;
+  cursor: pointer;
+
+  &:after {
+    @include pseudo-elem;
+    z-index: 1;
+    left: calc(50% - 39px);
+    top: calc(50% - 24px);
+
+    width: 68px;
+    height: 48px;
+    @include svgBackground($svg-button);
+    opacity: 0.5;
+  }
+
+  &:hover {
+    &:after {
+      @include svgBackground($svg-button-hover);
+      opacity: 1;
+    }
+  }
+
+  &.play {
+    &:after {
+      display: none;
+    }
+  }
+
+  &__tag {
+    display: block;
+
+    max-width: 100%;
+    width: 100%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

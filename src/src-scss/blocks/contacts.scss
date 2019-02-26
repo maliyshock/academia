@@ -28,18 +28,10 @@
 
     &:first-child {
       margin-right: 32px;
-
-      @include for-tablet-landscape-up {
-        margin-right: 0;
-      }
     }
 
     &:last-child {
       padding-right: 0;
-
-      @include for-tablet-landscape-up {
-        margin-left: 32px;
-      }
     }
   }
 

@@ -1,6 +1,4 @@
 import $ from 'jquery';
-import  {events} from './utils.js'
-
 
 export let tabs = {
     cacheDom: function () {
@@ -16,12 +14,10 @@ export let tabs = {
             this.$tabs.removeClass('active');
             $(self).addClass('active');
 
-            let href = $(self).attr('href');
+            let target = $(self).attr('aria-controls');
             this.$panels.fadeOut(0);
 
-            $(href).fadeIn(200, function () {
-                events.emit('calculatorTabChanged');
-            });
+            $('#'+target).css({'display':'flex'}).hide(0).fadeIn();
 
         }.bind(this))
     },

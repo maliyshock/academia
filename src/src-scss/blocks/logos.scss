@@ -2,11 +2,13 @@
   &__list {
     @include reset-ul;
     @include dflex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
 
   &__item {
+    padding: 20px;
+
     @include for-phone-only {
       @include dflex;
       justify-content: center;
@@ -14,6 +16,10 @@
       width: 100%;
     }
 
-    padding: 20px;
+    img {
+      height: 100px;
+      max-width: unset;
+      width: auto;
+    }
   }
 }

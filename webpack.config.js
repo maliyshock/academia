@@ -61,6 +61,14 @@ module.exports = {
             filename: 'main.html',
             template: PATHS.source + '/src-pug/main.pug'
         }),
+        new HtmlWebpackplugin({
+            filename: 'about-us.html',
+            template: PATHS.source + '/src-pug/about-us.pug'
+        }),
+        new HtmlWebpackplugin({
+            filename: 'course.html',
+            template: PATHS.source + '/src-pug/course.pug'
+        }),
         new ExtractTextPlugin("app.css"),
         new webpack.ProvidePlugin({ // inject ES5 modules as global vars
             $: 'jquery',

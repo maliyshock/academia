@@ -46,6 +46,14 @@ const common = merge([
                 filename: 'main.html',
                 template: PATHS.source + '/src-pug/main.pug'
             }),
+            new HtmlWebpackplugin({
+                filename: 'about-us.html',
+                template: PATHS.source + '/src-pug/about-us.pug'
+            }),
+            new HtmlWebpackplugin({
+                filename: 'course.html',
+                template: PATHS.source + '/src-pug/course.pug'
+            }),
             new CopyWebpackPlugin([
                 { context: PATHS.source + '/images', from: '**/*', to: 'images' },
                 { context: PATHS.source + '/fonts', from: '**/*', to: 'fonts' }

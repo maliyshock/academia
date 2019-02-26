@@ -12,8 +12,10 @@
     @include pseudo-elem;
     @include svgBackground($arrow);
 
+    z-index:  1;
     top: calc(50% - 8px);
     right: 0;
+
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center ;

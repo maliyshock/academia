@@ -1,0 +1,13 @@
+.course {
+  position: relative;
+
+  background-image: url('images/courses/course-bg.svg');
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__img {
+    flex-shrink: 0;
+    @include f-col(6);
+  }
+}

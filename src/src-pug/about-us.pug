@@ -1,0 +1,159 @@
+include mixins/all
+
+doctype html
+html(lang='ru')
+    head
+        include parts/head
+        //include parts/map-script
+
+
+    body.page
+        include parts/header
+
+        main.page__inner
+
+            section.section.section--sm-padding-top
+
+                section.section.section--width-extended.section--margin-top
+                    .section__inner
+                        +title-area({
+                            title: 'Академия Интернет Бизнеса',
+                            subTitle: 'Академия Интернет Бизнеса — это Первый в России и СНГ образовательный центр по созданию и развитию бизнеса в электронной коммерции. Мы приглашаем компетентных экспертов для передачи лучшего опыта нашим студентам.'
+                        })
+
+            section.section.section--margin-top
+                .section__inner
+                    .cards
+                        ul.cards__list.cards__list--small-card-size
+                            - var titles = ['180 проведенных вебинаров', '6 лет практики', '1250 успешных магазинов']
+                            - for(var i = 0; i < 3; i++)
+                                li.cards__item
+                                    // title, link, текст
+                                    .card.card--body-fat.card--text-center.card--text-short
+                                        //title, text, subtitle, link, notice
+                                        +card-icon({
+                                            title: titles[i],
+                                            text: 'отпраздновала день рождения. Было выпито 3519 бокалов советского шампанского'
+                                        })
+                                            +icon('card__icon icon--size-giant')
+                                                if(i === 0)
+                                                    include ../images/vebinar.svg
+                                                else if (i === 1)
+                                                    include ../images/mountains.svg
+                                                else
+                                                    include ../images/store.svg
+
+
+            section.section.section--margin-top
+                .section__inner
+                    .person
+                        .person__avatar
+                            .person__img
+                                img(srcset='images/placeholders/evgenya.jpg 1x, images/placeholders/evgenya@2x.jpg 2x' alt='Замечательный Человек')
+                        .person__content
+                            h2.h2.person__title Евгения Белова
+                            .person__text
+                                p В декабре академия отпраздновала день рождения. Было выпито 3519 бокалов советского шампанского Основательница Академии — Евгения Белова.
+                                p Лауреат премии «Самый молодой миллионер Спб 2015»
+                                p Владелица 5 интернет-магазинов
+
+                            blockquote.person__quote
+                                p Вот уже 5 лет мы делимся своими фишками и инструментами со всеми, кто хочет открыть бизнес в интернете и полностью изменить свой образ жизни.
+                                p Более 7 000 учеников присоединились к нам и прокачали себя в области интернет-маркетинга по самым разным направлениям.
+                                p За эти годы мы сформировали сильнейшую команду кураторов и тимлидеров, которые работают индивидуально с каждым учеником.
+                                p Каждый из них уже запустил свой проект и готов поделиться опытом с вами!
+
+
+            section.section.section--margin-top
+                .section__inner
+                    +title-area({title: 'Команда'})
+                .section__inner
+                    .cards
+                        ul.cards__list.cards__list--smallest-card-size
+                            - for(var i = 0; i < 6; i++)
+                                li.cards__item
+                                    // title, link, tag, date, classNames
+                                    +card({
+                                        title: 'Евгения Белова',
+                                        link: '#',
+                                        classNames: 'cards__card',
+                                        achivements: (i === 5)
+                                    })
+                                        p.card__text Основательница Академии
+
+            section.section.section--margin-top
+                .video.js-video
+                    video.video__tag(poster='../images/transparent.png' style='background-image: url("../images/placeholders/video.jpg")')
+                        source(src='../images/video.mp4' type="video/mp4")
+
+            section.section.section--ovh.section--relative
+                .section__bg.section__bg--violet
+
+                    // это дублирование только для того чтобы двигать волну
+                    // в соответствии с текстом и контентом
+
+                    .section__inner
+                        .people.people--hidden-from-tablets
+                            .people__column.people__image
+                                img(srcset='images/people.png 1x, images/people@2x.png 2x')
+
+                            h4.h4.people__column.people__text Академия Интернет Бизнеса — это Первый в России и СНГ образовательный центр по созданию и развитию бизнеса в электронной коммерции. Мы приглашаем компетентных экспертов для передачи лучшего опыта нашим студентам.
+
+                    .section__bg-wave
+                        include ../images/wave.svg
+                .section__inner
+                    .people
+                        .people__column.people__image
+                            img(srcset='images/people.png 1x, images/people@2x.png 2x')
+
+                        h4.h4.people__column.people__text Академия Интернет Бизнеса — это Первый в России и СНГ образовательный центр по созданию и развитию бизнеса в электронной коммерции. Мы приглашаем компетентных экспертов для передачи лучшего опыта нашим студентам.
+
+                .section__inner
+                    .accordions-wrapper
+                        - var titles = ['Подойдет ли мне эта программа', 'Когда и в какое время я буду учиться', 'Что делать если я пропустил занятие?']
+                        - for(var i = 0; i < 3; i++)
+                            +accordion({
+                                title: titles[i],
+                                text: 'После выселения прислали письмо с благодарностью за то, что мы оставили жилище в чистом, неразгромленном состоянии (да, вот такое нам свойственно, но раньше никто этого не замечал)) Вообще, на запросы через форму букинга отвечают оперативно, толково, подробно. Единственное, мы, решив, что это нечто типа апартотеля, не выспросили подробно, как попасть в подъезд и по прибытии имели некоторое затруднение - вот эта улица, вот этот дом, вот вроде и вход в арке. Но он закрыт, а на панели домофона ни намека на название апартаментов.'
+                            })
+
+                    .section__button-area
+                        +button({title:'Выбрать курс'})
+
+
+            section.section.section--margin-top
+                .section__inner
+                    - for(var i = 0; i < 3; i++)
+                        +story_block({
+                            title: 'Платформа',
+                            list: [
+                                'Академия Интернет Бизнеса — это Первый в России и СНГ образовательный центр по созданию и развитию бизнеса в электронной коммерции. Мы приглашаем компетентных экспертов для передачи лучшего опыта нашим студентам.'
+                            ]
+                        })
+
+            section.section.section--bg-light-blue.section--paddings-vertical.section--margin-top.section--width-extended
+                .section__inner
+                    +title-area({title: 'Жизнь Академии'})
+                .section__inner
+                    include parts/student-stories
+
+
+            section.section.section--margin-top.section--width-extended
+                .section__inner
+                    +title-area({title: 'Партнеры академии'})
+                    .logos
+                        ul.logos__list
+                            - for(var i = 0; i < 12; i++)
+                                li.logos__item
+                                    img(srcset='http://placehold.it/' + (i + 1) + '00x200 1x, http://placehold.it/200x' + (i + 1) + '00 2x' alt='Компания такая-то')
+
+            article.call-to-action.section.section--bg-light-blue.section--paddings-vertical.section--margin-top
+                .section__inner
+                    +call-to-action({title: 'Начните действовать прямо сейчас', button: 'Записаться на обучение'})
+
+
+
+        include parts/form-popup
+        include parts/footer
+
+include parts/scripts

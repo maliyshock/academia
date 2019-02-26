@@ -1,3 +1,8 @@
+a.card {
+  $c: &;
+  @include cardHover($c);
+}
+
 .card {
   $c: &;
   @include dflex;
@@ -16,27 +21,26 @@
   text-decoration: none;
   white-space: normal;
 
-  transition: transform $transition-time, box-shadow $transition-time;
+  background-color: transparentize($white,.1);
 
-  &:hover {
-    transform: translateY(-2px);
-    @include shadow;
+  &--text-short {
+    #{$c}__text, &__title  {
+      max-width: 240px;
 
-    & #{$c}__title {
-      text-decoration: underline;
-    }
-
-    & #{$c}__button {
-      background-color: darken( adjust-hue($light-blue, -2), 4%);
-      border-radius: 0;
-      transition: none;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
+  &--text-weak {
+    color: $dark-gray;
+  }
+
+  &--text-center {
+    text-align: center;
+  }
+
   &--body-fat {
-    #{$c}__body {
-      padding-top: 12px;
-    }
     #{$c}__body, #{$c}__header {
       @include for-tablet-portrait-up {
         padding-left: 40px;
@@ -53,7 +57,7 @@
     overflow: hidden;
 
     width: 100%;
-    height: 200px;
+    //height: 200px;
 
     @include for-phone-only {
       height: 100px;
@@ -66,12 +70,12 @@
 
   &__image {
     width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
   }
 
   &__body {
-    padding: 24px;
+    padding: 8px 24px 24px 24px ;
   }
 
   &__tag {
@@ -87,6 +91,46 @@
 
   &__achivements {
     margin-bottom: 8px;
+
+    &--bg-violet {
+      background-color: $violet;
+
+      color: $white;
+
+      & svg {
+        fill: $white;
+      }
+    }
+
+    &--devided-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-bottom: 0;
+
+      padding-top: 12px;
+      padding-bottom: 12px;
+
+      & .icon {
+        display: block;
+
+        flex-basis: 50%;
+        flex-grow: 1;
+        flex-shrink: 0;
+
+        text-align: center;
+      }
+
+      & > .icon + .icon {
+        border-left: 1px solid transparentize($white, 0.9);
+      }
+
+      & .icon__text {
+        display: block;
+        width: 100%;
+      }
+    }
   }
 
   &__icon {
@@ -97,8 +141,17 @@
     padding: 20px 20px 0 20px;
   }
 
+  &__text, &__title  {
+    line-height: 150%;
+  }
+
+
   &__title {
     margin-bottom: 8px;
+  }
+
+  &__text {
+    font-size: 16px;
   }
 
   &__date {
@@ -108,7 +161,23 @@
     color: $gray;
   }
 
-  &--text-center {
+  &__more {
+    display: block;
+
+    margin-top: 6px;
+
+    color: $card-link;
+
     text-align: center;
+  }
+
+  &__notice {
+    display: block;
+
+    width: 100%;
+
+    padding: 8px 12px;
+
+    background-color: $light-gray;
   }
 }

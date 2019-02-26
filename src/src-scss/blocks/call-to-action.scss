@@ -1,5 +1,11 @@
 .call-to-action {
 
+  text-align: center;
+
+  @include for-tablet-landscape-up {
+    text-align: left;
+  }
+
   &__column {
     margin-top: 20px;
 

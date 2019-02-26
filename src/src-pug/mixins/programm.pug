@@ -1,0 +1,20 @@
+mixin programm(object)
+    a(href='#' target='_blank' class='reset-link')
+        .programm(class=object.className)
+            .programm__content
+                header.programm__header
+                    h3.h3.programm__title #{object.title}
+                    p.programm__text #{object.text}
+                footer.programm__footer
+                    ul.list.list--direction-horizontal.list--h-margins-bigger.list--grow-0
+                        li.list__item
+                            +icon('icon--color-gray', '16 февряля')
+                                include ../../images/calendar.svg
+                        li.list__item
+                            +icon('icon--color-gray', '8 недель')
+                                include ../../images/clocks.svg
+            .programm__picture-area
+                .programm__icon
+                    +icon('icon--color-violet icon--size-bigger')
+                        block
+

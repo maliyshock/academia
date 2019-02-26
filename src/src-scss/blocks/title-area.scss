@@ -1,4 +1,6 @@
 .title-area {
+  margin-bottom: 32px;
+
   &__action-title {
     @include dflex;
     align-items: center;

@@ -1,0 +1,184 @@
+include mixins/all
+
+doctype html
+html(lang='ru')
+    head
+        include parts/head
+        //include parts/map-script
+
+
+    body.page
+        include parts/header
+
+        main.page__inner
+            article.section.course
+                .section__bg-wave
+                    include ../images/wave.svg
+                .section__inner.course__inner
+                    .course__content
+                        h1.h1.course__title SEO - оптимизация для интернет магазинов
+                        h5.h5.course__text Научитесь уверенно писать полезные тексты и зарабатывать на этм
+                        +button({title:'Записаться на курс'})
+                    .course__img
+                        img(srcset='../images/courses/store.png 1x, ../images/courses/store@2x.png 2x')
+
+            article.section.section--sm-padding-top
+                .section__inner
+                    +title-area({ title: 'О курсе' } )
+
+                    ul.list.list--direction-horizontal.list--short-items-content.list--paddings-bottom
+                        - for(var i = 0; i < 5; i++)
+                            li.list__item
+                                h4.h4.violet 22 часа лекций
+                                p По сравнению с другими видами медиамаркетинга (печатными, радио и телевидением),
+
+            article.section.section--sm-padding-top
+                .section__inner
+                    +title-area({title: 'Для кого этот курс'} )
+
+                section.section.section--bg-light-blue.section--paddings-vertical.section--margin-top.section--width-extended
+                    .section__inner
+                        .tabs.tabs--width-short
+                            ul.tabs__list(role='tablist')
+                                li.tabs__item
+                                    a(href='#' role='tab' aria-selected='false' aria-controls='newbies-tab-content' id='newbies' class='tabs__tab js-tab') Новички в веб аналитике
+                                li.tabs__item
+                                    a(href='#' role='tab' aria-selected='true' aria-controls='chiefs-tab-content' id='chiefs' class='tabs__tab active js-tab') Руководители и владельцы бизнеса
+                                li.tabs__item
+                                    a(href='#' role='tab' aria-selected='false' aria-controls='experts-tab-content' id='experts' class='tabs__tab js-tab') Специалисты межных digital-профессий
+
+                            .tabs__panel(id='newbies-tab-content' aria-labelledby='newbies' class='tabs__panel js-tab-panel')
+                                .tabs__content
+                                    h3.h3.tabs__title Новички и владельцы бизнеса
+                                    p.tabs__text Один из важнейших специалистов в любом современном бизнесе.  От его работы может зависеть коммерческий успех компании. По сравнению с другими видами медиамаркетинга (печатными, радио и телевидением).
+                                .tabs__image
+                                    img(srcset='../images/businesman.png 1x, ../images/businesman@2x.png 2x')
+
+                            .tabs__panel(id='chiefs-tab-content' aria-labelledby='chiefs' class='tabs__panel js-tab-panel active')
+                                .tabs__content
+                                    h3.h3.tabs__title Руководители и владельцы бизнеса
+                                    p.tabs__text Один из важнейших специалистов в любом современном бизнесе.  От его работы может зависеть коммерческий успех компании. По сравнению с другими видами медиамаркетинга (печатными, радио и телевидением).
+                                .tabs__image
+                                    img(srcset='../images/businesman.png 1x, ../images/businesman@2x.png 2x')
+
+                            .tabs__panel(id='experts-tab-content' aria-labelledby='experts' class='tabs__panel js-tab-panel')
+                                .tabs__content
+                                    h3.h3.tabs__title Эксперты и владельцы бизнеса
+                                    p.tabs__text Один из важнейших специалистов в любом современном бизнесе.  От его работы может зависеть коммерческий успех компании. По сравнению с другими видами медиамаркетинга (печатными, радио и телевидением).
+                                .tabs__image
+                                    img(srcset='../images/businesman.png 1x, ../images/businesman@2x.png 2x')
+
+            article.section.section--margin-top
+                .section__inner
+                    +title-area({title: 'Чему вы научитесь'})
+
+                    ul.icons-anounce-grid
+                        - var titles = ['Настраивать Google analytics и Яндекс Метрику','Строить систему сквозной аналитики','Запускать A/B тесты','Понятно визуализировать отчеты в power BI','Использовать Google Tag Manager']
+                        - for(var i = 0; i < 5; i++)
+                            li.icons-anounce-grid__item
+                                .icons-anounce-grid__icon
+                                    +icon('icon--size-big')
+                                        if(i === 0)
+                                            include ../images/learn/doc.svg
+                                        else if (i === 1)
+                                            include ../images/learn/gear.svg
+                                        else if (i === 2)
+                                            include ../images/learn/loupe.svg
+                                        else if (i === 3)
+                                            include ../images/learn/analys.svg
+                                        else
+                                            include ../images/learn/code.svg
+                                .icons-anounce-grid__content
+                                    h4.icons-anounce-grid__title #{titles[i]}
+                                    p.icons-anounce-grid__text Один из важнейших специалистов в любом современном бизнесе.  От его работы может зависеть коммерческий успех компании
+
+
+            article.section.section--margin-top
+                .section__inner
+                    +title-area({
+                        title: 'Кто проводит курс',
+                        subTitle: 'Команда Академии интернет бизнеса – это профессионалы интернет маркетинга, сайтостроения, продаж, дизайна и бизнес-косультаций. Стаж каждого из преподавателей не менее 3х лет в своей отрасли'
+                    })
+                .section__inner
+                    .cards.cards--accordionable
+                        ul.cards__list.cards__list--smallest-card-size.js-cardodion-family
+                            - for(var i = 0; i < 4; i++)
+                                li.cards__item.js-cardodion
+                                    // title, link, tag, date, classNames
+                                    +card({
+                                        title: 'Евгения Белова',
+                                        link: '#',
+                                        classNames: 'cards__card'
+                                    })
+                                        p.card__text Основательница Академии
+                                li.cards__description.js-cardodion-body
+                                    h4.cards__description-title #{i} раза Артур Хамадурин
+                                    p.cards__description-text Команда Академии интернет бизнеса – это профессионалы интернет маркетинга, сайтостроения, продаж, дизайна и бизнес-косультаций. Стаж каждого из преподавателей не менее 3х лет в своей отрасли
+
+                section.section.section.section--bg-light-blue.section--paddings-vertical.section--margin-top
+                    .section__inner
+                        .block-base
+                            +form({title: 'Получите бесплатную консультацию', text:'Ответим на вопросы в удобное для вас время'})
+
+                article.section.section--margin-top
+                    .section__inner
+                        +title-area({title: 'Программа курса'})
+
+                        .accordions-wrapper
+                            - var titles = ['Подойдет ли мне эта программа', 'Когда и в какое время я буду учиться', 'Что делать если я пропустил занятие?', 'Когда и в какое время я буду учиться']
+                            - for(var i = 0; i < 4; i++)
+                                +accordion({
+                                    title: titles[i],
+                                    amount: i+' уроков',
+                                    counter: i+'.',
+                                    text: 'После выселения прислали письмо с благодарностью за то, что мы оставили жилище в чистом, неразгромленном состоянии (да, вот такое нам свойственно, но раньше никто этого не замечал)) Вообще, на запросы через форму букинга отвечают оперативно, толково, подробно. Единственное, мы, решив, что это нечто типа апартотеля, не выспросили подробно, как попасть в подъезд и по прибытии имели некоторое затруднение - вот эта улица, вот этот дом, вот вроде и вход в арке. Но он закрыт, а на панели домофона ни намека на название апартаментов.',
+                                    bonus: (i===3)
+                                })
+
+                article.section.section--margin-top
+                    .section__inner результатом прохождения
+
+
+                article.section.section--margin-top
+                    .section__inner отзывы
+
+                article.section.section--bg-light-blue.section--paddings-vertical.section--margin-top.section--width-extended
+                    .section__inner
+                        +title-area({title: 'Истории успеха'})
+                    .section__inner
+                        include parts/student-stories
+
+                article.section.section--margin-top
+                    .section__inner стоимость обучения
+
+                section.section.section.section--bg-light-blue.section--paddings-vertical.section--margin-top
+                    .section__inner
+                        .block-base
+                            +form({
+                                title: 'Узнайте об актуальных предложениях и скидках',
+                                text: 'Ответим на вопросы в удобное для вас время'
+                            })
+
+                article.section.section--margin-top
+                    .section__inner
+                        +title-area({title: 'Остались вопросы'})
+
+                        .accordions-wrapper
+                            - var titles = ['Подойдет ли мне эта программа', 'Когда и в какое время я буду учиться', 'Что делать если я пропустил занятие?']
+                            - for(var i = 0; i < 3; i++)
+                                +accordion({
+                                    title: titles[i],
+                                    text: 'После выселения прислали письмо с благодарностью за то, что мы оставили жилище в чистом, неразгромленном состоянии (да, вот такое нам свойственно, но раньше никто этого не замечал)) Вообще, на запросы через форму букинга отвечают оперативно, толково, подробно. Единственное, мы, решив, что это нечто типа апартотеля, не выспросили подробно, как попасть в подъезд и по прибытии имели некоторое затруднение - вот эта улица, вот этот дом, вот вроде и вход в арке. Но он закрыт, а на панели домофона ни намека на название апартаментов.'
+                                })
+
+                article.section.section--margin-top
+                    .section__inner давайте общаться
+
+
+
+
+
+        include parts/form-popup
+        include parts/footer
+
+include parts/scripts

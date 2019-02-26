@@ -58,12 +58,21 @@
     max-width: 100%;
     width: auto;
 
-    padding: 25px 32px;
+    padding: 20px;
 
     border-radius: $bd-radius;
 
+    @include for-tablet-landscape-up {
+      padding: 25px 32px;
+
+
+      #{$c}__text {
+        font-size: 18px;
+      }
+    }
+
     #{$c}__text {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 
@@ -79,6 +88,7 @@
 
   &--width-full {
     max-width: 100%;
+    width: 100%;
   }
 
   &--color-light-blue {

@@ -39,6 +39,10 @@ body {
   box-sizing: border-box;
 }
 
+* {
+  line-height: 150%;
+}
+
 p {
   max-width: 100%;
 }
@@ -73,14 +77,14 @@ p {
 
 .h1, h1{
   line-height: 1.3em;
+  font-size: 52px;
 }
 
 .h3, h3, .h4, h4, .h5, h5 {
   line-height: 1.5em;
-}
-
-.h1, h1 {
-  font-size: 52px;
+  &.violet {
+    color: $violet;
+  }
 }
 
 .h2 {

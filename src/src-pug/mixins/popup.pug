@@ -1,5 +1,5 @@
-mixin popup(modificators, header)
-    article.popup.js-popup(class=modificators)
+mixin popup(object)
+    article.popup.js-popup(class=object.classNames)
         .popup__inner
             button.popup__close.js-popup-close
                 +icon('icon--color-white')

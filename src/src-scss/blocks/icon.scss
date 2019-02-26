@@ -1,8 +1,8 @@
 .icon {
   $c: &;
   display: inline-flex;
+  // some small icons adjusted not right in other case
   align-items: center;
-
 
   &--color-violet {
     @include coloriseIcon($violet);
@@ -14,6 +14,30 @@
 
   &--color-black {
     @include coloriseIcon($black);
+  }
+
+  &--color-gray {
+    @include coloriseIcon($gray);
+  }
+
+  &--size-big {
+    #{$c}__image {
+      width: 44px;
+      height: 44px;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+
+      &:last-child {
+        margin-left: 10px;
+      }
+
+      &:only-child {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
   }
 
   &--size-bigger {
@@ -43,8 +67,47 @@
     }
   }
 
+  &[class*='#{str-replace(''+&, '.', '')}--bg-'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 72px;
+    height: 72px;
+
+    padding: 12px ;
+
+    margin: 12px auto;
+
+    border-radius: $bd-radius;
+
+  }
+
+  &--bg-yellow {
+    background-color: $yellow;
+  }
+
+  &--bg-violet {
+    background-color: $violet;
+  }
+
+  &--bg-black {
+    background-color: $black;
+  }
+
+  &--bg-gray {
+    background-color: $gray;
+  }
+
   &__text {
-    max-width: 160px;
+    align-self: center;
+
+    // ??
+    // minor crush on slider icons
+
+    .list--width-strict & {
+      max-width: 160px;
+    }
 
     font-size: 16px;
   }
@@ -57,6 +120,8 @@
 
     width: 19px;
     height: 19px;
+
+    //margin-top: 2px;
 
     & > * {
       height: 100%;

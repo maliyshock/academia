@@ -9,6 +9,8 @@
   }
 
   &__row {
+    margin-top: 20px;
+
     &--adjustment-inline {
       @include dflex;
       justify-content: space-between;
@@ -44,7 +46,6 @@
     }
   }
 
-
   &__body {
     flex-grow: 1;
 
@@ -79,5 +80,10 @@
 
       padding: 12px 20px;
     }
+  }
+
+  &__text {
+    font-size: 16px;
+    text-align: center;
   }
 }

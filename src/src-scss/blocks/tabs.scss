@@ -1,17 +1,30 @@
 .tabs {
   $c: &;
 
+  @include blockBase;
+  @include shadow;
+
+  background-color: $white;
+
+  &--width-short {
+    max-width: 940px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   &__list {
+    @include reset-ul;
     display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
+    flex-wrap: nowrap;
 
-    #{$c}--wide & {
-      flex-wrap: nowrap;
-    }
+    white-space: nowrap;
 
-    &.list--direction-horizontal {
-      transform: translateX(0);
+    overflow-x: auto;
+
+    @include for-tablet-landscape-up {
+      flex-wrap: wrap;
+      white-space: normal;
     }
   }
 
@@ -19,110 +32,77 @@
     flex-grow: 1;
     flex-shrink: 0;
 
-    width: 0;
+    align-self: stretch;
 
-    #{$c}--wide & {
-      flex-basis: 0;
-      flex-grow: 1;
-      flex-shrink: 0;
+
+    @include for-tablet-landscape-up {
+      width: 0;
+    }
+  }
+
+  &__panel {
+    display: none;
+    flex-wrap: wrap;
+
+    padding: 24px;
+
+    @include for-tablet-landscape-up {
+      flex-wrap: nowrap;
+    }
+
+    &.active {
+      display: flex;
     }
   }
 
   &__content {
 
-    #{$c}--big &{
-      @include for-phone-up {
-        padding: 30px 15px
-      }
-
-      @include for-tablet-portrait-up {
-        padding: 50px 30px;
-      }
-
-      @include for-tablet-landscape-up {
-        padding: 60px 40px;
-      }
-
-      @include for-desktop-up {
-        padding: 80px;
-      }
+    @include for-tablet-landscape-up {
+      padding-right: 32px;
     }
   }
 
-  &__text {
-    transition: background-size $quick-transition-time;
-  }
+  &__tab {
+    display: block;
 
-  &__icon {
-    height: 30px;
-    width: auto;
+    height: 100%;
 
-    margin-right: 10px;
+    padding: 24px 20px 20px 20px;
 
-    & > * {
-      display: block;
-    }
-  }
+    border-radius: 0 0 $bd-radius $bd-radius;
 
-  &__link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 15px;
-
-    color: #666666;
+    color: $black;
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
 
     transition: background-color $transition-time;
 
-    @include for-tablet-portrait-up {
-      text-align: center;
+    &.active, &:hover {
+      transform: translateY(-2px);
     }
 
     &.active {
-      //background-color: $sky;
-      color: $blue;
+      background-color: $yellow;
+
+      color: $white;
       cursor: default;
-    }
-
-    &:not(.active) {
-      background-color: #fafafa;
-      #{$c}__text {
-        //background-image: linear-gradient(to bottom, rgba(35, 178, 255, 0) 0%, rgba(35, 178, 255, 0) 20%, rgba(35, 178, 255, 1) 20%, rgba(35, 178, 255, 1) 100%);
-        background-size: 100% 0;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-      &:hover {
-        #{$c}__text {
-          background-size: 100% 100%;
-        }
-      }
-    }
-
-    #{$c}--big & {
-      @include for-phone-up {
-        padding: 10px 15px;
-
-        font-size: between(16px, 20px, $phone-from, $tablet-landscape);
-      }
-
-      @include for-tablet-landscape-up {
-        padding: 22px 20px;
-
-        font-size: 20px;
-      }
     }
   }
 
-  &__panel {
-    display: none;
+  &__text {
+    margin-top: 12px;
+  }
 
-    &.active {
-      display: block;
+  &__image {
+    flex-shrink: 0;
+    order: -1;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @include for-tablet-landscape-up {
+      order: 1;
     }
   }
 }

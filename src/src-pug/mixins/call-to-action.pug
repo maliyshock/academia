@@ -1,12 +1,10 @@
-mixin call-to-action(title, button)
-    article.call-to-action.section.section--bg-light-blue.section--vertical-indents
-        .section__inner
-            .row
-                .column.call-to-action__column
-                    .h2 #{title}
+mixin call-to-action(object)
+    .row
+        .column.call-to-action__column
+            .h2 #{object.title}
 
-                .column.call-to-action__column.call-to-action__column--show-from-landscape
-                    .arrow
+        .column.call-to-action__column.call-to-action__column--show-from-landscape
+            .arrow
 
-                .column.call-to-action__column
-                    +button(button, 'button--highlighted button--width-full button--size-big js-show-popup', '.js-popup-form')
+        .column.call-to-action__column
+            +button({title:object.button, modificators:'button--highlighted button--width-full button--size-big js-show-popup', target:'.js-popup-form'})

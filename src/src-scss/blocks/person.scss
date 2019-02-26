@@ -1,0 +1,123 @@
+.person {
+  $c: &;
+
+  @include dflex;
+
+  @include for-tablet-landscape-up {
+    flex-wrap: nowrap;
+  }
+
+  &__avatar {
+    flex-basis: 100%;
+    
+    @include for-tablet-landscape-up {
+       @include f-col(5);
+    }
+  }
+
+  &__content {
+    flex-basis: 100%;
+
+    margin-top: 32px;
+
+    border-radius: $bd-radius;
+
+    background-color: transparentize($white, 0.1);
+
+    @include for-tablet-landscape-up {
+      margin-left: 8%;
+      @include f-col(6);
+    }
+  }
+
+  &__img {
+    @include shadow;
+
+    position: relative;
+
+    width: 200px;
+    height: 200px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+
+    //background-color: $white;
+
+    &:before {
+      @include pseudo-elem;
+      z-index: -1;
+
+      top: -49.5%;
+      right: -23%;
+
+      width: 264.4%;
+      height: 253.4%;
+
+      background-image: url('images/person-bg.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+
+      border-radius: 100%;
+
+      object-fit: cover;
+    }
+
+    @include for-tablet-landscape-up {
+      width: 450px;
+      height: 450px;
+    }
+  }
+
+  &__title {
+    padding-top: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    @include for-tablet-landscape-up {
+      padding-top: 0;
+    }
+  }
+
+  &__text {
+    padding: 16px;
+
+    font-size: 16px;
+    line-height: 150%;
+
+    @include for-tablet-landscape-up {
+      padding: 24px;
+    }
+  }
+
+  &__quote {
+    @include blockBase;
+    @include shadow;
+
+    padding: 16px;
+
+    @include for-tablet-landscape-up {
+      padding: 24px;
+    }
+
+    & p {
+      font-size: 16px;
+      line-height: 150%;
+
+      @include for-tablet-landscape-up {
+        font-size: 20px;
+      }
+    }
+
+    & p + p {
+      margin-top: 16px;
+    }
+  }
+
+}

@@ -1,30 +1,84 @@
+.swiper-container {
+  width: 100%;
+  overflow: inherit;
+  position: static;
+}
+
 .slider {
   $c: &;
+  display: flex;
+  flex-wrap: wrap;
+
+  // fix for counter
+  @include for-tablet-landscape-up {
+    &:not(.cards) {
+      position: relative;
+    }
+  }
 
   &--bg-violet {
+    #{$c}__counter {
+      @include for-tablet-portrait-up {
+        background-color: transparentize($white, 0.9);
+
+        color: $white;
+      }
+    }
+
     #{$c}__slide {
       background-image: url('images/placeholders/violet.jpg');
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
     }
+
+    #{$c}__content {
+      color: #fff;
+    }
+
+    #{$c}__sub-title {
+      color: $yellow;
+    }
   }
 
-  &--size-normal {
+  &--ovh {
     #{$c}__slide {
+      @include for-phone-only {
+        overflow: hidden;
+        border-radius: $big-bd-radius;
+      }
+    }
+    @include for-tablet-portrait-up {
+      overflow: hidden;
+      border-radius: $big-bd-radius;
+    }
+  }
 
-      max-height: 500px;
+  &--has-cards {
+    #{$c}__button {
 
       @include for-tablet-portrait-up {
-        height: 562px;
+        top: 100px;
+      }
+
+      @include for-tablet-landscape-up {
+        top: calc(50% - 25px);
       }
     }
   }
 
   &__slide {
-    display: flex;
+    @include dflex;
 
-    opacity: 0.45;
+    opacity: 1;
+
+    @include for-tablet-portrait-up {
+      opacity: 0.45;
+    }
+
+    @include for-tablet-landscape-up {
+      flex-wrap: nowrap;
+    }
 
     &.swiper-slide-visible, &.swiper-slide-active {
       opacity: 1;
@@ -38,16 +92,11 @@
     height: 100%;
   }
 
-
   &__counter {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
     position: absolute;
     z-index: 3;
-    left: 24px;
-    bottom: 24px;
+    top: 20px;
+    left: 40px;
 
     width: 76px;
     height: 40px;
@@ -56,27 +105,42 @@
 
     border-radius: 20px;
 
-    background-color: transparentize($white, 0.9);
+    background-color: transparentize($violet, 0.9);
 
-    color: $white;
+    color: $violet;
     font-size: 16px;
+
+    @include for-tablet-landscape-up {
+      left: 24px;
+      bottom: 24px;
+      top: auto;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+    }
   }
 
   &__button {
     @include resetButton;
-    @include makeCircle(50px, 50px, $light-blue);
+    @include makeCircle(50px, 50px, transparent ) ;
 
-    position: absolute;
-    z-index: 1;
-
-    top: 100px;
-
-    @include for-tablet-landscape-up {
+    @include for-tablet-portrait-up {
+      position: absolute;
+      z-index: 1;
       top: calc(50% - 25px);
+
+      background-color: $light-blue;
     }
 
-    &:hover {
-      background-color: darken($light-blue, 2%);
+    @include for-desktop-up {
+      &:hover {
+        background-color: darken($light-blue, 2%);
+      }
     }
 
     &.swiper-button-disabled {
@@ -84,9 +148,12 @@
     }
 
     &--prev {
-      left: -10px;
+      margin-right: 10px;
+      @include for-tablet-portrait-up {
+        left: 0px;
 
-      background-color: darken($light-blue, 2%);
+        margin-right: auto;
+      }
 
       transform: scale(-1,1);
 
@@ -100,8 +167,12 @@
     }
 
     &--next {
-      right: -10px;
-      background-color: darken($light-blue, 2%);
+      margin-left: 10px;
+      @include for-tablet-portrait-up {
+        right: 0;
+
+        margin-left: auto;
+      }
 
       @include for-desktop-up {
         right: 35px;
@@ -113,12 +184,12 @@
     }
   }
 
+  &__inner {
+    overflow: hidden;
+  }
+
   &__list {
     position: relative;
-
-    &--ovh {
-      overflow: hidden;
-    }
 
     &--corners-rounded {
       border-radius: $big-bd-radius;
@@ -127,46 +198,55 @@
 
   &__content, &__img-container {
     flex-basis: 100%;
+    width: 100%;
 
-    @include for-tablet-portrait-up {
+    @include for-tablet-landscape-up {
       flex-basis: 50%;
+      flex-grow: 1;
+      flex-shrink: 0;
     }
   }
 
-
   &__img-container {
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
+    order: -1;
 
-    height: 100%;
+    @include for-tablet-landscape-up {
+      order: 1;
+    }
 
-    display: flex;
+    & > svg {
+      display: none;
 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+      @include for-tablet-landscape-up {
+        position: static;
 
-    border-radius: 75% 25% 0% 100% / 100% 0% 100% 0%;
+        display: block;
 
-    box-shadow: 0 10px 16px 6px rgba(0,0,0,.08);
+        flex-shrink: 0;
 
-    opacity: 0.6;
+        opacity: 1;
+      }
+    }
 
-    transform: translateX(30%) ;
+    & img {
 
-    @include for-tablet-portrait-up {
-      position: static;
+      display: block;
 
-      border-radius: 62% 38% 36% 64% / 62% 41% 59% 38% ;
+      width: 150px;
+      height: 150px;
 
-      opacity: 1;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
 
-      transform: scale(1.2, 1.2) translateX(-30%);
+      border-radius: 100%;
+      border: 4px solid transparentize($white, 0.5);
 
-      //animation: morph 16s ease-in-out infinite both alternate;
+      object-fit: cover;
+
+      @include for-tablet-landscape-up {
+        display: none;
+      }
     }
   }
 
@@ -174,23 +254,24 @@
     position: relative;
     z-index: 2;
 
-    padding: 20px 40px;
+    padding: 20px;
 
     text-align: center;
-    color: #fff;
 
-
-    @include for-tablet-portrait-up {
+    @include for-tablet-landscape-up {
       position: relative;
 
       align-self: center;
 
       padding-left: 40px;
-      padding-right: 60px;
+      padding-right: 40px;
+      padding-bottom: 40px;
 
       text-align: right;
+    }
 
-      transform: translateY(-20px);
+    @include for-big-desktop-up {
+      padding-right: 60px;
     }
   }
 
@@ -206,7 +287,13 @@
     margin-top: 8px;
 
     font-size: 20px;
-    color: $yellow;
+  }
+
+  &__text {
+    margin-top: 8px;
+
+    font-size: 16px;
+    line-height: 150%;
   }
 
   &__img {
@@ -214,28 +301,15 @@
     visibility: hidden;
   }
 
-  &__slide-button {
+  &__icons {
+    margin-top: 20px;
+  }
 
+  &__slide-button {
     margin-top: 20px;
 
     @include for-tablet-portrait-up {
       margin-top: 40px;
     }
-  }
-}
-
-.swiper-container {
-  width: 100%;
-  overflow: inherit;
-}
-
-@keyframes morph {
-  0% {border-radius: 44% 56% 0% 100% / 56% 0% 100% 44%}
-  100% {border-radius: 77% 23% 0% 100% / 32% 0% 100% 68%}
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(1turn);
   }
 }

@@ -1,0 +1,67 @@
+.programm {
+  $c: &;
+
+  display: flex;
+  @include blockBase;
+
+  @include cardHover($c);
+
+  font-size: 16px;
+
+  @include for-tablet-landscape-up {
+    min-height: 200px;
+  }
+
+  &--color-blue {
+    @include changeProgrammColor($blue, $c);
+  }
+
+  &--color-green {
+    @include changeProgrammColor($green, $c);
+  }
+
+  &--color-orange {
+    @include changeProgrammColor($orange, $c);
+  }
+
+  &--color-purple {
+    @include changeProgrammColor($purple, $c);
+  }
+
+  &__content {
+    @include dflex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    padding: 24px 32px;
+  }
+
+  &__picture-area {
+    display: none;
+
+    @include for-tablet-landscape-up {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+
+      width: 220px;
+
+      background-color: lighten($violet, 25%);
+    }
+  }
+
+  &__icon {
+    @include makeCircle(112px, 112px, $white);
+
+    border: 4px solid $violet;
+  }
+
+  &__footer {
+    margin-top: auto;
+  }
+
+  &__text {
+    margin-top: 12px;
+  }
+}

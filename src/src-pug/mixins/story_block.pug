@@ -1,12 +1,12 @@
-mixin story_block(title, list, modificator)
+mixin story_block(object)
     .story__block.content
         .row
             .content__column.column
                 .content__img-container.img-container
-                    img(srcset='http://placehold.it/600x900 1x, http://placehold.it/600x900 2x')
+                    img(srcset='http://placehold.it/600x900 1x, http://placehold.it/600x900 2x' alt='Это хороший человек')
 
             .content__column.column
-                h3.h3 #{title}
+                h3.h3 #{object.title}
 
-                for item in list
+                for item in object.list
                     p.h4 #{item}

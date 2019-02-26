@@ -1,7 +1,9 @@
-mixin button(text, modificator, target)
-    if(!target)
-        a.button(class=modificator href=link)
-            span.button__text #{text}
+mixin button(object)
+    if(object.tag === 'a')
+        a.button(class=object.modificator href=object.href)
+            span.button__text #{object.title}
     else
-        button.button(class=modificator data-target=target)
-            span.button__text #{text}
+        button.button(class=object.modificator data-target=object.target)
+            span.button__text #{object.title}
+
+

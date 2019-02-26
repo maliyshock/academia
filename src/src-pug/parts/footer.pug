@@ -46,7 +46,7 @@ footer.footer
                     p.footer__text ОКТМО: 45376000
                 .footer__column
                     h5.footer__title Соц сети
-                    ul.list.list--direction-horizontal.list--text-opacity-weak
+                    ul.list.list--direction-horizontal.list--grow-0.list--text-opacity-weak
                         li.list__item
                             a.link.list__link(href='#')
                                 span.list__icon
@@ -74,4 +74,4 @@ footer.footer
                 .footer__column
                     h6.footer__title Контакты
                     +contacts
-                        +button('Заказать вонок', 'button--size-small')
+                        +button({title:'Заказать вонок', modificator:'button--size-small js-show-popup', target:'.js-popup-form'})

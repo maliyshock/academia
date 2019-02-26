@@ -33,7 +33,7 @@ header.header
                             a.link.link--no-transform.h5.contacts__text(href="tel:8-800-200-30-30") 8 800–200–30–30
                             p.contacts__text пн-пт, 10-19 по МСК
                         .contacts__side
-                            +button('Заказать вонок', '')
+                            +button({title:'Заказать вонок', modificator:'js-show-popup', target:'.js-popup-form'})
 
                     ul.list.navigation__list.navigation__list--hidden-from-landscape
                         li.navigation__item
@@ -52,7 +52,7 @@ header.header
 
             .header__side
                 +contacts('contacts--show-from-portrait')
-                    +button('Заказать вонок', 'button--size-small')
+                    +button({title:'Заказать вонок', modificator:'button--size-small js-show-popup', target:'.js-popup-form'})
 
 
     .header__floor

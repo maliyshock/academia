@@ -1,0 +1,68 @@
+.people {
+  @include dflex;
+
+  @include for-tablet-portrait-up {
+    flex-wrap: nowrap;
+  }
+
+  &--showed-from-tablets {
+    visibility: hidden;
+    opacity: 0;
+
+    @include for-tablet-portrait-up {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &--hidden-from-tablets {
+    @include for-tablet-portrait-up {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  &__text {
+    color: $white;
+
+    @include for-phone-up {
+      padding-top: 30px;
+      padding-bottom: 100px;
+    }
+
+    @include for-tablet-portrait-up {
+      padding-left: 30px;
+    }
+
+    @include for-tablet-landscape-up {
+      padding-top: 140px;
+      padding-bottom: 60px;
+
+      @include f-col(6);
+    }
+  }
+
+  &__image {
+    flex-shrink: 0;
+
+    width: 250px;
+    height: 250px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @include for-tablet-portrait-up {
+      padding-right: 30px;
+    }
+
+    @include for-tablet-landscape-up {
+      @include f-col(6);
+      width: auto;
+      height: auto;
+    }
+
+    & img {
+      transform: scale(1.2,1.2) translateY(-5%) translateX(-5%);
+    }
+  }
+}

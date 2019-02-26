@@ -1,33 +1,51 @@
-mixin card(title, link, tag, date, classNames)
-    a.card(class=classNames href=link)
+mixin card(object)
+    a.card(class=object.classNames href=object.link)
         header.card__header
             img.card__image(srcset='images/placeholders/evgenya.jpg 1x, images/placeholders/evgenya@2x.jpg 2x' alt='Description of Image')
         .card__body
-            if(tag)
+            if(object.tag)
                 .tags
                     ul.tags__list
                         li.tags__item
-                            span.card__tag(href='#') #{tag}
-            h4.h4.card__title #{title}
-            if(date)
-                time.card__date #{date}
-            table.card__achivements.table.table--size-small
-                tbody
-                    tr.table__tr
-                        td.table__td
-                            span.icon.icon--color-violet
-                                span.icon__image
-                                    include ../../images/dollar.svg
-                                span.icon__text Доход:
+                            span.card__tag(href='#') #{object.tag}
+            if(object.title)
+                h4.h4.card__title #{object.title}
 
-                        td.table__td 150 000 р. в мес
-                    tr.table__tr
-                        td.table__td
-                            span.icon.icon--color-violet
-                                span.icon__image
-                                    include ../../images/target.svg
-                                span.icon__text Ниша:
-                        td.table__td Костюмы
+            if(object.date)
+                time.card__date #{object.date}
+
+            if(object.table)
+                table.card__achivements.table.table--size-small
+                    tbody
+                        tr.table__tr
+                            td.table__td
+                                span.icon.icon--color-violet
+                                    span.icon__image
+                                        include ../../images/dollar.svg
+                                    span.icon__text Доход:
+
+                            td.table__td 150 000 р. в мес
+                        tr.table__tr
+                            td.table__td
+                                span.icon.icon--color-violet
+                                    span.icon__image
+                                        include ../../images/target.svg
+                                    span.icon__text Ниша:
+                            td.table__td Костюмы
             block
+
         footer.card__footer
-            +button('Подробнее', 'card__button button--color-light-blue button--no-transform button--width-full')
+            if(object.button)
+                +button({
+                    title: 'Подробнее',
+                    modificator: 'card__button button--color-light-blue button--no-transform button--width-full'
+                })
+
+
+            if(object.achivements)
+                .card__achivements.card__achivements--bg-violet.card__achivements--devided-icons
+                    +icon('', '7 лет опыта')
+                        include ../../images/calendar.svg
+
+                    +icon('', '26 магазинов')
+                        include ../../images/cup.svg
