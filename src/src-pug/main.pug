@@ -12,7 +12,7 @@ html(lang='ru')
 
         main.page__inner
 
-            section.section.section--sm-padding-top.section--width-extended
+            section.section.section--sm-padding-top.section--width-extended.section--pos-relative
                 .section__inner
                     .slider.slider--ovh.slider--bg-violet.swiper-container.js-main-slider
                         .slider__counter.js-main-pagination
@@ -27,7 +27,7 @@ html(lang='ru')
 
                                 .slider__img-container
                                     include ../images/placeholders/slider6.svg
-                                    img(srcset='../images/placeholders/woman.jpg 1x, ../images/placeholders/woman@2x.jpg 2x' alt='Это хороший человек')
+                                    img(srcset='images/placeholders/woman.jpg 1x, images/placeholders/woman@2x.jpg 2x' alt='Это хороший человек')
 
                             li.slider__slide.swiper-slide
                                 .slider__content
@@ -37,7 +37,7 @@ html(lang='ru')
 
                                 .slider__img-container
                                     include ../images/placeholders/slider6.svg
-                                    img(srcset='../images/placeholders/woman.jpg 1x, ../images/placeholders/woman@2x.jpg 2x' alt='Это хороший человек')
+                                    img(srcset='images/placeholders/woman.jpg 1x, images/placeholders/woman@2x.jpg 2x' alt='Это хороший человек')
 
 
                     button.slider__button.slider__button--prev.js-main-button-prev
@@ -78,7 +78,7 @@ html(lang='ru')
                                                 else
                                                     include ../images/hat.svg
 
-            section.section.section--margin-top.section--margin-top.section--width-extended
+            section.section.section--margin-top.section--margin-top.section--width-extended.section--pos-relative
                 .section__inner
 
                     +title-area({title:'Программы обучения'})
@@ -105,7 +105,7 @@ html(lang='ru')
                                             include ../images/courses/direct.svg
 
 
-            section.section.section--width-extended.section--margin-top
+            section.section.section--width-extended.section--margin-top.section--pos-relative
                 .section__inner
                     +title-area({title:'Программы обучения'})
 
@@ -127,22 +127,22 @@ html(lang='ru')
                                             notice: notice
                                         })
                                             if(i===0)
-                                                +icon('card__icon icon--size-bigger icon--bg-yellow')
+                                                +icon('card__icon icon--size-bigger icon--shape-square icon--bg-yellow')
                                                     include ../images/events/webinar.svg
                                             else if (i===1)
-                                                +icon('card__icon icon--size-bigger icon--bg-violet')
+                                                +icon('card__icon icon--size-bigger icon--shape-square icon--bg-violet')
                                                     include ../images/events/workshop.svg
                                             else if (i === 2)
-                                                +icon('card__icon icon--size-bigger icon--bg-black')
+                                                +icon('card__icon icon--size-bigger icon--shape-square icon--bg-black')
                                                     include ../images/events/design.svg
                                             else if (i === 3)
-                                                +icon('card__icon icon--size-bigger icon--bg-gray')
+                                                +icon('card__icon icon--size-bigger icon--shape-square icon--bg-gray')
                                                     include ../images/events/webinar.svg
                                             else if (i === 4)
-                                                +icon('card__icon icon--size-bigger icon--bg-yellow')
+                                                +icon('card__icon icon--size-bigger icon--shape-square icon--bg-yellow')
                                                     include ../images/events/workshop.svg
                                             else
-                                                +icon('card__icon icon--size-bigger icon--bg-violet')
+                                                +icon('card__icon icon--size-bigger icon--shape-square icon--bg-violet')
                                                     include ../images/events/design.svg
 
 
@@ -159,7 +159,7 @@ html(lang='ru')
                     .block-base
                         +form({title:'Помочь с выбором?',icons: true})
 
-            section.section.section--margin-top.section--width-extended
+            section.section.section--margin-top.section--width-extended.section--pos-relative
                 .section__inner
                     +title-area({title:'Новые истории успеха учеников'})
                 .section__inner
@@ -187,7 +187,7 @@ html(lang='ru')
                 .section__inner
                     +call-to-action({title:'Начните действовать прямо сейчас', button:'Записаться на обучение'})
 
-            section.section.section--margin-top.section--width-extended
+            section.section.section--margin-top.section--width-extended.section--pos-relative
                 .section__inner
                     .logos
                         ul.logos__list

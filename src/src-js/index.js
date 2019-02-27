@@ -116,6 +116,7 @@ $('document').ready(function(){
         {
             slidesPerView: 1,
             spaceBetween: 20,
+            autoHeight: true,
             navigation: {
                 nextEl: '.js-students-button-next',
                 prevEl: '.js-students-button-prev',
@@ -124,6 +125,29 @@ $('document').ready(function(){
                 el: '.js-students-pagination',
                 type: 'fraction',
             },
+        }
+    );
+
+    var reviews = createSwiper(
+        '.js-reviews-slider',
+        {
+            spaceBetween: 20,
+            breakpointsInverse: true,
+            autoHeight: true,
+            navigation: {
+                nextEl: '.js-reviews-button-next',
+                prevEl: '.js-reviews-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    slidesPerGroup: 1
+                },
+                960: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 2
+                }
+            }
         }
     );
 

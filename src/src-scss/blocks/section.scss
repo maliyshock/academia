@@ -10,12 +10,27 @@
     }
   }
 
+  &--bg-violet {
+    background-image: url('images/bg-violet.svg');
+    background-size: cover;
+
+    color: $white;
+
+    @include for-tablet-landscape-up {
+      background-size: cover;
+    }
+  }
+
   &--ovh {
     overflow: hidden;
   }
 
-  &--relative {
+  &--pos-relative {
     position: relative;
+
+    #{$c}__inner {
+      position: relative;
+    }
   }
 
   &--paddings-vertical {
@@ -43,21 +58,11 @@
       position: relative;
     }
     #{$c}__inner {
-      position: relative;
-
       max-width: 1350px;
 
       @include for-tablet-landscape-up {
         padding-left: 60px;
         padding-right: 60px;
-      }
-    }
-  }
-
-  &--margin-left {
-    @include for-desktop-up {
-      #{$c}__inner {
-        margin-left: calc((100% - 1280px)/2);
       }
     }
   }
@@ -92,8 +97,8 @@
 
   &__bg-wave {
     position: absolute;
-    z-index: 1;
-    bottom: 0;
+    z-index: 3;
+    bottom: -1px;
 
     width: 100%;
 
@@ -142,8 +147,6 @@
     @include dflex;
     justify-content: center;
     align-items: center;
-
-    padding-top: 60px;
 
     @include for-tablet-portrait-up {
       flex-wrap: nowrap;

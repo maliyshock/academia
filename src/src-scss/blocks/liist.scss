@@ -24,6 +24,10 @@
     }
   }
 
+  &--centered {
+    justify-content: center;
+  }
+
   &--direction-horizontal {
     @include dflex;
 

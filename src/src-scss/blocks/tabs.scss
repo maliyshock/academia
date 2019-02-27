@@ -31,9 +31,9 @@
   &__item {
     flex-grow: 1;
     flex-shrink: 0;
-
     align-self: stretch;
 
+    max-width: 100%;
 
     @include for-tablet-landscape-up {
       width: 0;
@@ -75,11 +75,14 @@
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
+    white-space: normal;
 
     transition: background-color $transition-time;
 
-    &.active, &:hover {
-      transform: translateY(-2px);
+    @include for-tablet-landscape-up {
+      &.active, &:hover {
+        transform: translateY(-2px);
+      }
     }
 
     &.active {

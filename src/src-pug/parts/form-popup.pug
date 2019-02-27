@@ -1,2 +1,14 @@
 +popup({classNames:'js-popup-form'})
-    +form({title:'Помочь с выбором?', icons: true})
+    header.form__header
+        h2.popup__title.h2 Помочь с выбором?
+    .form__body
+        .form__row
+            include ../parts/form-icons
+        .form__row
+            form.form.form--width-strict
+                .form__row.form__row--adjustment-inline
+                    +input('tel', '+7', 'Телефон', 'form__item')
+                    +button({
+                        title: 'Отправить',
+                        modificator: 'button--highlighted button--width-full form__item'
+                    })

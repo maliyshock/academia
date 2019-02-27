@@ -20,6 +20,10 @@
     @include coloriseIcon($gray);
   }
 
+  &--color-dark-gray {
+    @include coloriseIcon($dark-gray);
+  }
+
   &--size-big {
     #{$c}__image {
       width: 44px;
@@ -67,7 +71,7 @@
     }
   }
 
-  &[class*='#{str-replace(''+&, '.', '')}--bg-'] {
+  &--shape-square {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +84,6 @@
     margin: 12px auto;
 
     border-radius: $bd-radius;
-
   }
 
   &--bg-yellow {
@@ -99,6 +102,14 @@
     background-color: $gray;
   }
 
+  &--rounded {
+    @include makeCircle(50px,50px, transparent);
+  }
+
+  &--bg-violet {
+    background-color: $violet;
+  }
+
   &__text {
     align-self: center;
 
@@ -110,8 +121,13 @@
     }
 
     font-size: 16px;
+
+    &--size-biggest {
+      font-size: 32px;
+      font-weight: 700;
+    }
   }
-  
+
   &__image {
     display: inline-flex;
     justify-content: center;

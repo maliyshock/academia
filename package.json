@@ -66,6 +66,7 @@
     "pug-loader": "^2.3.0",
     "pump": "^2.0.0",
     "swiper": "^4.4.6",
-    "uglify-es": "^3.2.2"
+    "uglify-es": "^3.2.2",
+    "ymaps": "^0.1.1"
   }
 }

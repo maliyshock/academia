@@ -13,14 +13,28 @@ html(lang='ru')
         main.page__inner
             article.section.course
                 .section__bg-wave
-                    include ../images/wave.svg
+                    include ../images/shadow-wave.svg
                 .section__inner.course__inner
                     .course__content
                         h1.h1.course__title SEO - оптимизация для интернет магазинов
-                        h5.h5.course__text Научитесь уверенно писать полезные тексты и зарабатывать на этм
-                        +button({title:'Записаться на курс'})
+                        h3.h3.course__text Научитесь уверенно писать полезные тексты и зарабатывать на этм
+                        .course__btn-area
+                            +button({title:'Записаться на курс'})
                     .course__img
-                        img(srcset='../images/courses/store.png 1x, ../images/courses/store@2x.png 2x')
+                        img(srcset='images/courses/store.png 1x, images/courses/store@2x.png 2x')
+
+                .section__inner.course__inner
+                    .course__about
+                        .course__about-img
+                            .course__numbers
+                                .course__number.course__number--size-big.course__number--color-yellow ~1600
+                                .course__number вакансий
+
+                            img(srcset='images/businesman2.png 1x, images/businesman2@2x.png 2x')
+                        .course__about-description
+                            .course__about-inner
+                                h2.h2.course__title Что такое копирайтинг
+                                h5.h5.course__about-text Интернет — маркетолог – один из важнейших специалистов в любом современном бизнесе. От его работы может зависеть коммерческий успех компании. По сравнению с другими видами медиамаркетинга (печатными, радио и телевидением), интернет-маркетинг растет очень быстро. Он завоёвывает все большую популярность не только у бизнеса, но и обычных пользователей, которые хотят продвинуть свой сайт.
 
             article.section.section--sm-padding-top
                 .section__inner
@@ -32,11 +46,11 @@ html(lang='ru')
                                 h4.h4.violet 22 часа лекций
                                 p По сравнению с другими видами медиамаркетинга (печатными, радио и телевидением),
 
-            article.section.section--sm-padding-top
+            article.section.section--sm-padding-top.section--margin-top
                 .section__inner
                     +title-area({title: 'Для кого этот курс'} )
 
-                section.section.section--bg-light-blue.section--paddings-vertical.section--margin-top.section--width-extended
+                section.section.section--bg-light-blue.section--paddings-vertical.section--width-extended.section--pos-relative
                     .section__inner
                         .tabs.tabs--width-short
                             ul.tabs__list(role='tablist')
@@ -52,21 +66,21 @@ html(lang='ru')
                                     h3.h3.tabs__title Новички и владельцы бизнеса
                                     p.tabs__text Один из важнейших специалистов в любом современном бизнесе.  От его работы может зависеть коммерческий успех компании. По сравнению с другими видами медиамаркетинга (печатными, радио и телевидением).
                                 .tabs__image
-                                    img(srcset='../images/businesman.png 1x, ../images/businesman@2x.png 2x')
+                                    img(srcset='images/businesman.png 1x, images/businesman@2x.png 2x')
 
                             .tabs__panel(id='chiefs-tab-content' aria-labelledby='chiefs' class='tabs__panel js-tab-panel active')
                                 .tabs__content
                                     h3.h3.tabs__title Руководители и владельцы бизнеса
                                     p.tabs__text Один из важнейших специалистов в любом современном бизнесе.  От его работы может зависеть коммерческий успех компании. По сравнению с другими видами медиамаркетинга (печатными, радио и телевидением).
                                 .tabs__image
-                                    img(srcset='../images/businesman.png 1x, ../images/businesman@2x.png 2x')
+                                    img(srcset='images/businesman.png 1x, images/businesman@2x.png 2x')
 
                             .tabs__panel(id='experts-tab-content' aria-labelledby='experts' class='tabs__panel js-tab-panel')
                                 .tabs__content
                                     h3.h3.tabs__title Эксперты и владельцы бизнеса
                                     p.tabs__text Один из важнейших специалистов в любом современном бизнесе.  От его работы может зависеть коммерческий успех компании. По сравнению с другими видами медиамаркетинга (печатными, радио и телевидением).
                                 .tabs__image
-                                    img(srcset='../images/businesman.png 1x, ../images/businesman@2x.png 2x')
+                                    img(srcset='images/businesman.png 1x, images/businesman@2x.png 2x')
 
             article.section.section--margin-top
                 .section__inner
@@ -91,6 +105,17 @@ html(lang='ru')
                                 .icons-anounce-grid__content
                                     h4.icons-anounce-grid__title #{titles[i]}
                                     p.icons-anounce-grid__text Один из важнейших специалистов в любом современном бизнесе.  От его работы может зависеть коммерческий успех компании
+
+            section.section.section--margin-top
+                .section__inner
+                    +title-area({title: 'Как проходит обучение'})
+            section.section.section--bg-light-blue.section--paddings-vertical
+                .section__inner
+                    ul.counter-list
+                        - for(var i = 0; i < 5; i++)
+                            li.counter-list__item
+                                .counter-list__counter #{i+1}
+                                p.counter-list__text Один из важнейших специалистов в любом современном бизнесе.  От его работы может зависеть коммерческий успех компании. По сравнению с другими видами медиамаркетинга (печатными, радио и телевидением).
 
 
             article.section.section--margin-top
@@ -135,21 +160,133 @@ html(lang='ru')
                                     bonus: (i===3)
                                 })
 
-                article.section.section--margin-top
-                    .section__inner результатом прохождения
+                section.section.section--margin-top
+                    .section__inner
+                        +title-area({title: 'Результатом прохождения урса станет запушенный, работающий\n' +
+                        'и приносящий доход интернет-бизнес с доходом от 30 000 р'} )
+
+                section.section.section--bg-violet.section--paddings-vertical
+                    .section__inner
+                        .ticket
+                            .ticket__half
+                                .ticket__inner
+                                    .ticket__row
+                                        h2.h2.ticket__title Записаться на курс
+                                        p.ticket__text Ответим на вопросы в удобное для вас время
+                                    .ticket__row
+                                        include parts/form-icons
+                            .ticket__half
+                                .ticket__inner
+                                    form.form.form--width-strict
+                                        .form__row
+                                            +input('tel', '+7', 'Телефон', 'form__item')
+                                        .form__row
+                                            +button({
+                                                title: 'Отправить',
+                                                modificator: 'button--highlighted button--width-full form__item'
+                                            })
 
 
-                article.section.section--margin-top
-                    .section__inner отзывы
+                article.section.section--margin-top.section--pos-relative
+                    .section__inner
+                        +title-area({title: 'Отзывы'})
 
-                article.section.section--bg-light-blue.section--paddings-vertical.section--margin-top.section--width-extended
+                        .slider.slider--opacity-1.slider--ovh.swiper-container.js-reviews-slider
+                            ul.slider__list.d.slider__list--ovh.swiper-wrapper
+                                // slides should have frame
+                                - for(var j = 0; j < 3; j++)
+                                    li.slider__slide.swiper-slide
+                                        .slider__content
+                                            - for(var i = 0; i < 3; i++)
+                                                article.review.review--paddings
+                                                    .review__title-area
+                                                        h4.review__title Василий Уточкин
+                                                        time.review__date 12.02.2018
+                                                    p.review__text Команда Академии интернет бизнеса – это профессионалы интернет маркетинга, сайтостроения, продаж, дизайна и бизнес-косультаций. Стаж каждого из преподавателей не менее 3х лет в своей отрасли
+
+
+                                    li.slider__slide.swiper-slide
+                                        .slider__content
+                                            .review.video.js-video
+                                                video.video__tag(poster='images/transparent.png' style='background-image: url("images/placeholders/video.jpg")')
+                                                    source(src='images/video.mp4' type="video/mp4")
+                                            .review.video.js-video
+                                                video.video__tag(poster='images/transparent.png' style='background-image: url("images/placeholders/video.jpg")')
+                                                    source(src='images/video.mp4' type="video/mp4")
+
+
+                        button.slider__button.slider__button--prev.js-reviews-button-prev
+                            +icon('icon--size-micro')
+                                include ../images/arrow.svg
+                        button.slider__button.slider__button--next.js-reviews-button-next
+                            +icon('icon--size-micro')
+                                include ../images/arrow.svg
+
+                article.section.section--bg-light-blue.section--paddings-vertical.section--margin-top.section--width-extended.section--pos-relative
                     .section__inner
                         +title-area({title: 'Истории успеха'})
                     .section__inner
                         include parts/student-stories
 
                 article.section.section--margin-top
-                    .section__inner стоимость обучения
+                    .section__inner
+                        +title-area({title: 'Стоимость обучения'})
+
+                        .scrollable
+                            table.table.table--text-center.table--min-size.table--color-zebra
+                                thead
+                                    tr.table__tr
+                                        th.table__th
+                                        th.table__th.table__th--bg-light-blue PRO
+                                        th.table__th
+                                        th.table__th.table__th--bg-velvet VIP
+                                        th.table__th
+                                        th.table__th.table__th--bg-yellow Super VIP
+
+                                tbody.table__tbody
+                                    tr.table__tr
+                                        td.table__td Длительность
+                                        td.table__td 3 мес
+                                        td.table__td
+                                        td.table__td 6 мес
+                                        td.table__td
+                                        td.table__td 1 год
+                                    - var table = ['Доступ к обучающей платформе','Поддержка команды кураторов','Проверка ДЗ кураторами','Мастер-группы, ПН, ЧТ','Возможность «отложенного старта»','Членство в закрытой экспертной группе ВК','Членство в закрытых чатах Телеграм','Инструменты ИнстаУскоритель, ВкУскоритель, СайтоУскоритель (NEW)','Дополнительные Мастер-группы']
+                                    - for(var j = 0; j < 9; j++)
+                                        tr.table__tr
+                                            td.table__td #{table[j]}
+                                            td.table__td
+                                                +icon('icon--color-dark-gray')
+                                                    include ../images/check.svg
+                                            td.table__td
+                                            td.table__td
+                                                +icon('icon--color-dark-gray')
+                                                    include ../images/check.svg
+                                            td.table__td
+                                            td.table__td
+                                                +icon('icon--color-dark-gray')
+                                                    include ../images/check.svg
+                                tfoot.table__tfoot
+                                    tr.table__tr
+                                        td.table__td
+                                        td.table__td
+                                            +price({text:'27 900'})
+                                        td.table__td
+                                        td.table__td
+                                            +price({text: '68 900'})
+                                        td.table__td
+                                        td.table__td
+                                            +price({text: '97 900'})
+                                    tr.table__tr
+                                        td.table__td
+                                        td.table__td
+                                            +button({title:'Выбрать', modificator:'button--size-small button--no-top-border'})
+                                        td.table__td
+                                        td.table__td
+                                            +button({title: 'Выбрать', modificator:'button--size-small button--no-top-border'})
+                                        td.table__td
+                                        td.table__td
+                                            +button({title: 'Выбрать', modificator:'button--size-small button--no-top-border'})
 
                 section.section.section.section--bg-light-blue.section--paddings-vertical.section--margin-top
                     .section__inner
@@ -172,11 +309,26 @@ html(lang='ru')
                                 })
 
                 article.section.section--margin-top
-                    .section__inner давайте общаться
+                    .section__inner
+                        +title-area({title: 'Давайте общаться!', subTitle: 'Ответим на вопросы в удобное для вас время'})
+                        ul.list.list--centered.list--direction-horizontal.list--grow-0.list--text-opacity-weak
+                            - for(var i = 0; i < 5; i++)
+                                li.list__item
+                                    a.link.link--color-white.list__link(href='#')
+                                        +icon('icon--rounded icon--bg-violet')
+                                            if(i === 0)
+                                                include ../images/socials/twitter.svg
+                                            else if (i === 1)
+                                                include ../images/socials/inst.svg
+                                            else if (i === 2)
+                                                include ../images/socials/fb.svg
+                                            else if (i === 3)
+                                                include ../images/socials/yt.svg
+                                            else
+                                                include ../images/socials/tg.svg
 
-
-
-
+                        .section__button-area.section--sm-margin-top
+                            +button({title: 'Заказать звонок', modificator:'js-show-popup', target:'.js-popup-form'})
 
         include parts/form-popup
         include parts/footer

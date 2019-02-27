@@ -31,4 +31,11 @@
       transform: none;
     }
   }
+
+  &--color-white {
+    & svg, & #{$c}__text, &:hover svg, &:hover #{$c}__text {
+      color: $white;
+      fill: $white;
+    }
+  }
 }

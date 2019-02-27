@@ -14,7 +14,7 @@ html(lang='ru')
 
             section.section.section--sm-padding-top
 
-                section.section.section--width-extended.section--margin-top
+                section.section.section--width-extended.section--pos-relative.section--margin-top
                     .section__inner
                         +title-area({
                             title: 'Академия Интернет Бизнеса',
@@ -83,10 +83,10 @@ html(lang='ru')
 
             section.section.section--margin-top
                 .video.js-video
-                    video.video__tag(poster='../images/transparent.png' style='background-image: url("../images/placeholders/video.jpg")')
-                        source(src='../images/video.mp4' type="video/mp4")
+                    video.video__tag(poster='images/transparent.png' style='background-image: url("images/placeholders/video.jpg")')
+                        source(src='images/video.mp4' type="video/mp4")
 
-            section.section.section--ovh.section--relative
+            section.section.section--ovh.section--pos-relative
                 .section__bg.section__bg--violet
 
                     // это дублирование только для того чтобы двигать волну
@@ -117,7 +117,7 @@ html(lang='ru')
                                 text: 'После выселения прислали письмо с благодарностью за то, что мы оставили жилище в чистом, неразгромленном состоянии (да, вот такое нам свойственно, но раньше никто этого не замечал)) Вообще, на запросы через форму букинга отвечают оперативно, толково, подробно. Единственное, мы, решив, что это нечто типа апартотеля, не выспросили подробно, как попасть в подъезд и по прибытии имели некоторое затруднение - вот эта улица, вот этот дом, вот вроде и вход в арке. Но он закрыт, а на панели домофона ни намека на название апартаментов.'
                             })
 
-                    .section__button-area
+                    .section__button-area.section--margin-top
                         +button({title:'Выбрать курс'})
 
 
@@ -131,14 +131,14 @@ html(lang='ru')
                             ]
                         })
 
-            section.section.section--bg-light-blue.section--paddings-vertical.section--margin-top.section--width-extended
+            section.section.section--bg-light-blue.section--paddings-vertical.section--margin-top.section--width-extended.section--pos-relative
                 .section__inner
                     +title-area({title: 'Жизнь Академии'})
                 .section__inner
                     include parts/student-stories
 
 
-            section.section.section--margin-top.section--width-extended
+            section.section.section--margin-top.section--width-extended.section--pos-relative
                 .section__inner
                     +title-area({title: 'Партнеры академии'})
                     .logos

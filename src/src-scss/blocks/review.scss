@@ -1,0 +1,33 @@
+.review {
+  @include blockBase;
+
+  text-align: left;
+
+  &--paddings {
+    padding: 20px 24px;
+  }
+
+  & + & {
+    margin-top: 20px;
+  }
+
+  &__title-area {
+    display: flex;
+  }
+
+  &__title {
+    flex-grow: 1;
+
+    padding-right: 20px;
+  }
+
+  &__date {
+    flex-shrink: 0;
+
+    color: $gray;
+  }
+
+  &__text {
+    margin-top: 20px;
+  }
+}
